@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		B54F5C6C1A7C81F600101010 /* CChatBarEventHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = B54F5C6B1A7C81F600101010 /* CChatBarEventHandler.m */; };
 		B54F5C6F1A7CCB1A00101010 /* ChatScrollViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B54F5C6E1A7CCB1A00101010 /* ChatScrollViewTests.m */; };
-		B54F5C721A7D12E600101010 /* CChatScrollViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B54F5C711A7D12E600101010 /* CChatScrollViewDelegate.m */; };
+		B54F5C721A7D12E600101010 /* CChatScrollViewEventHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = B54F5C711A7D12E600101010 /* CChatScrollViewEventHandler.m */; };
 		B54F5C751A7D379D00101010 /* CUIChatBar.m in Sources */ = {isa = PBXBuildFile; fileRef = B54F5C741A7D379D00101010 /* CUIChatBar.m */; };
 		B54F5C771A7D37BF00101010 /* ChatBarTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B54F5C761A7D37BF00101010 /* ChatBarTests.m */; };
 		B5A21F6F1A7B45EF0036AD35 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5A21F6E1A7B45EF0036AD35 /* Foundation.framework */; };
@@ -43,8 +43,8 @@
 		B54F5C6A1A7C81F600101010 /* CChatBarEventHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CChatBarEventHandler.h; path = ../CChatBarEventHandler.h; sourceTree = "<group>"; };
 		B54F5C6B1A7C81F600101010 /* CChatBarEventHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CChatBarEventHandler.m; path = ../CChatBarEventHandler.m; sourceTree = "<group>"; };
 		B54F5C6E1A7CCB1A00101010 /* ChatScrollViewTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatScrollViewTests.m; sourceTree = "<group>"; };
-		B54F5C701A7D12E600101010 /* CChatScrollViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CChatScrollViewDelegate.h; sourceTree = "<group>"; };
-		B54F5C711A7D12E600101010 /* CChatScrollViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CChatScrollViewDelegate.m; sourceTree = "<group>"; };
+		B54F5C701A7D12E600101010 /* CChatScrollViewEventHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CChatScrollViewEventHandler.h; sourceTree = "<group>"; };
+		B54F5C711A7D12E600101010 /* CChatScrollViewEventHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CChatScrollViewEventHandler.m; sourceTree = "<group>"; };
 		B54F5C731A7D379D00101010 /* CUIChatBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUIChatBar.h; sourceTree = "<group>"; };
 		B54F5C741A7D379D00101010 /* CUIChatBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CUIChatBar.m; sourceTree = "<group>"; };
 		B54F5C761A7D37BF00101010 /* ChatBarTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatBarTests.m; sourceTree = "<group>"; };
@@ -101,10 +101,17 @@
 				B5A21F7E1A7B45EF0036AD35 /* CAppDelegate.m */,
 				B5A21F801A7B45EF0036AD35 /* Main_iPhone.storyboard */,
 				B5A21F831A7B45EF0036AD35 /* Main_iPad.storyboard */,
-				B54F5C731A7D379D00101010 /* CUIChatBar.h */,
-				B54F5C741A7D379D00101010 /* CUIChatBar.m */,
 			);
 			name = Core;
+			sourceTree = "<group>";
+		};
+		B54F5C781A7D498F00101010 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B5A21F861A7B45EF0036AD35 /* CViewController.h */,
+				B5A21F871A7B45EF0036AD35 /* CViewController.m */,
+			);
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 		B5A21F621A7B45EF0036AD35 = {
@@ -140,15 +147,16 @@
 		B5A21F741A7B45EF0036AD35 /* MaaiiChat */ = {
 			isa = PBXGroup;
 			children = (
+				B54F5C781A7D498F00101010 /* View Controllers */,
 				B54F5C6D1A7CC8AA00101010 /* Core */,
-				B5A21F861A7B45EF0036AD35 /* CViewController.h */,
-				B5A21F871A7B45EF0036AD35 /* CViewController.m */,
-				B5A21F891A7B45EF0036AD35 /* Images.xcassets */,
-				B5A21F751A7B45EF0036AD35 /* Supporting Files */,
+				B54F5C731A7D379D00101010 /* CUIChatBar.h */,
+				B54F5C741A7D379D00101010 /* CUIChatBar.m */,
 				B54F5C6A1A7C81F600101010 /* CChatBarEventHandler.h */,
 				B54F5C6B1A7C81F600101010 /* CChatBarEventHandler.m */,
-				B54F5C701A7D12E600101010 /* CChatScrollViewDelegate.h */,
-				B54F5C711A7D12E600101010 /* CChatScrollViewDelegate.m */,
+				B54F5C701A7D12E600101010 /* CChatScrollViewEventHandler.h */,
+				B54F5C711A7D12E600101010 /* CChatScrollViewEventHandler.m */,
+				B5A21F891A7B45EF0036AD35 /* Images.xcassets */,
+				B5A21F751A7B45EF0036AD35 /* Supporting Files */,
 			);
 			path = MaaiiChat;
 			sourceTree = "<group>";
@@ -287,7 +295,7 @@
 				B5A21F7B1A7B45EF0036AD35 /* main.m in Sources */,
 				B54F5C6C1A7C81F600101010 /* CChatBarEventHandler.m in Sources */,
 				B54F5C751A7D379D00101010 /* CUIChatBar.m in Sources */,
-				B54F5C721A7D12E600101010 /* CChatScrollViewDelegate.m in Sources */,
+				B54F5C721A7D12E600101010 /* CChatScrollViewEventHandler.m in Sources */,
 				B5A21F881A7B45EF0036AD35 /* CViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

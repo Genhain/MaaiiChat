@@ -9,14 +9,14 @@
 #import <UIKit/UIKit.h>
 
 @class CChatBarEventHandler;
-@class CChatScrollViewDelegate;
+@class CChatScrollViewEventHandler;
 @class CUIChatBar;
 
 @interface CViewController : UIViewController 
 
 
 @property (strong, nonatomic) CChatBarEventHandler *chatBarEventHandler;
-@property (strong, nonatomic) CChatScrollViewDelegate *chatScrollViewDelegate;
+@property (strong, nonatomic) CChatScrollViewEventHandler *chatScrollViewEventHandler;
 
 @property (weak, nonatomic) IBOutlet CUIChatBar *chatBar;
 @property (weak, nonatomic) IBOutlet UIScrollView *chatScrollView;

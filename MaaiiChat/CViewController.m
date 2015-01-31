@@ -8,7 +8,7 @@
 
 #import "CViewController.h"
 #import "CChatBarEventHandler.h"
-#import "CChatScrollViewDelegate.h"
+#import "CChatScrollViewEventHandler.h"
 
 @interface CViewController ()
 {
@@ -25,7 +25,7 @@
 	// Do any additional setup after loading the view, typically from a nib.
     
     _chatBarEventHandler = [CChatBarEventHandler Create:_chatBar];
-    _chatScrollViewDelegate = [CChatScrollViewDelegate Create:_chatScrollView];
+    _chatScrollViewEventHandler = [CChatScrollViewEventHandler Create:_chatScrollView];
 }
 
 - (void)didReceiveMemoryWarning

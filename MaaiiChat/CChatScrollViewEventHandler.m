@@ -6,16 +6,16 @@
 //  Copyright (c) 2015 Ben. All rights reserved.
 //
 
-#import "CChatScrollViewDelegate.h"
+#import "CChatScrollViewEventHandler.h"
 
-@implementation CChatScrollViewDelegate
+@implementation CChatScrollViewEventHandler
 {
     
 }
 
 +(id)Create:(UIScrollView*)scrollView
 {
-    return [[CChatScrollViewDelegate alloc]init:scrollView];
+    return [[CChatScrollViewEventHandler alloc]init:scrollView];
 }
 
 - (instancetype)init:(UIScrollView*)scrollView

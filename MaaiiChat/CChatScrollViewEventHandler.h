@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface CChatScrollViewDelegate : NSObject <UIScrollViewDelegate>
+@interface CChatScrollViewEventHandler : NSObject <UIScrollViewDelegate>
 {
     
 }

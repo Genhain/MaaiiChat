@@ -8,11 +8,11 @@
 
 #import <XCTest/XCTest.h>
 #import "CViewController.h"
-#import "CChatScrollViewDelegate.h"
+#import "CChatScrollViewEventHandler.h"
 
 @interface ChatScrollViewTests : XCTestCase
 {
-    CChatScrollViewDelegate *SUT;
+    CChatScrollViewEventHandler *SUT;
 }
 
 @end
@@ -29,7 +29,7 @@
     CViewController *CVC = [storyBoard instantiateViewControllerWithIdentifier:@"Chat"];
     [CVC view];
     
-    SUT = [CVC chatScrollViewDelegate];
+    SUT = [CVC chatScrollViewEventHandler];
 }
 
 - (void)tearDown
