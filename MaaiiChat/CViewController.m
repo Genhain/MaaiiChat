@@ -24,7 +24,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    _chatTextFieldDelegate = [CChatBarEventHandler Create:_chatBar];
+    _chatBarEventHandler = [CChatBarEventHandler Create:_chatBar];
     _chatScrollViewDelegate = [CChatScrollViewDelegate Create:_chatScrollView];
 }
 

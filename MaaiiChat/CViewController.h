@@ -15,7 +15,7 @@
 @interface CViewController : UIViewController 
 
 
-@property (strong, nonatomic) CChatBarEventHandler *chatTextFieldDelegate;
+@property (strong, nonatomic) CChatBarEventHandler *chatBarEventHandler;
 @property (strong, nonatomic) CChatScrollViewDelegate *chatScrollViewDelegate;
 
 @property (weak, nonatomic) IBOutlet CUIChatBar *chatBar;

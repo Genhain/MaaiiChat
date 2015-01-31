@@ -29,7 +29,7 @@
     CViewController *CVC = [storyBoard instantiateViewControllerWithIdentifier:@"Chat"];
     [CVC view];
     
-    sut = [CVC chatTextFieldDelegate];
+    sut = [CVC chatBarEventHandler];
 }
 
 - (void)tearDown
