@@ -40,7 +40,7 @@
     _testDataArray = @[@{
                    @"direction":@0,
                    @"name":@"them",
-                   @"message":@"Hey, hows shit going?"
+                   @"message":@"Hey, how's it going?"
                    },
                @{
                    @"direction":@1,
@@ -64,6 +64,7 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CUIChatCellTableViewCell *cell = [_chatTableView dequeueReusableCellWithIdentifier:@"CustomCell"];
+    
     NSDictionary *messageData = _testDataArray[indexPath.row];
     [cell.nameLabel setText:messageData[@"name"]];
     [cell.messageLabel setText:messageData[@"message"]];
@@ -74,15 +75,15 @@
     UIImage *image;
     if([messageData[@"direction"] boolValue])
     {
-        image= [[UIImage imageNamed:@"bubble_right"]resizableImageWithCapInsets:UIEdgeInsetsMake(18, 10, 6, 6) resizingMode:UIImageResizingModeStretch];
+        image= [[UIImage imageNamed:@"bubble_left"]resizableImageWithCapInsets:UIEdgeInsetsMake(18, 6, 6, 10) resizingMode:UIImageResizingModeStretch];
     }
     else
     {
-        image= [[UIImage imageNamed:@"bubble_left"]resizableImageWithCapInsets:UIEdgeInsetsMake(18, 6, 6, 10) resizingMode:UIImageResizingModeStretch];
-        
+         image= [[UIImage imageNamed:@"bubble_right"]resizableImageWithCapInsets:UIEdgeInsetsMake(18, 10, 6, 6) resizingMode:UIImageResizingModeStretch];
     }
     
-//    [[cell bubbleImage]setImage:image];
+    [[cell bubbleImage]setImage:image];
+    [[cell bubbleImage]setFrame:CGRectMake([cell nameLabel].frame.origin.x, 0, [cell messageLabel].frame.size.width+15, [cell messageLabel].frame.size.height + [cell nameLabel].frame.size.height + 15)];
     
     return cell;
 }
