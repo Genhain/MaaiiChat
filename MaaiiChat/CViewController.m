@@ -8,11 +8,15 @@
 
 #import "CViewController.h"
 #import "CChatBarEventHandler.h"
-#import "CChatScrollViewEventHandler.h"
+#import "CChatTableViewEventHandler.h"
+#import "CUIBubbleMessage.h"
+#import "UIView+NibLoading.h"
+#import "CUIChatCellTableViewCell.h"
 
 @interface CViewController ()
 {
-    id currentKeyboard;
+    NSMutableArray *_array;
+    NSMutableDictionary *_messageData;
 }
 
 @end
@@ -25,7 +29,20 @@
 	// Do any additional setup after loading the view, typically from a nib.
     
     _chatBarEventHandler = [CChatBarEventHandler Create:_chatBar];
-    _chatScrollViewEventHandler = [CChatScrollViewEventHandler Create:_chatScrollView];
+    _chatScrollViewEventHandler = [CChatTableViewEventHandler Create:_chatTableView];
+    
+    _chatTableView.delegate = self;
+    _chatTableView.dataSource = self;
+    
+    _array = @[@{
+                   @"name":@"them",
+                   @"message":@"Hey, hows shit going?"
+                   },
+               @{
+                   @"name":@"me",
+                   @"message":@"Nothing Much."
+                   }].mutableCopy;
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -34,6 +51,19 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return _array.count;
+}
 
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    CUIChatCellTableViewCell *cell = [_chatTableView dequeueReusableCellWithIdentifier:@"CustomCell"];
+    NSDictionary *messageData = _array[indexPath.row];
+    [cell.nameLabel setText:messageData[@"name"]];
+    [cell.messageLabel setText:messageData[@"message"]];
+    
+    return cell;
+}
 
 @end
