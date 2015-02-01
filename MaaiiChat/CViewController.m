@@ -79,34 +79,34 @@
     else
     {
         image= [[UIImage imageNamed:@"bubble_left"]resizableImageWithCapInsets:UIEdgeInsetsMake(18, 6, 6, 10) resizingMode:UIImageResizingModeStretch];
+        
     }
     
-    [[cell bubbleImage]setImage:image];
+//    [[cell bubbleImage]setImage:image];
     
     return cell;
 }
 
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    if(!_customCell)
-//        _customCell = [_chatTableView dequeueReusableCellWithIdentifier:@"CustomCell"];
-//    
-//    //configure cell
-//    NSDictionary *messageData = _array[indexPath.row];
-//    [_customCell.nameLabel setText:messageData[@"name"]];
-//    [_customCell.messageLabel setText:messageData[@"message"]];
-//    
-//    
-//    [[_customCell nameLabel]sizeToFit];
-//    [[_customCell messageLabel]sizeToFit];
-//    
-//    //Layout cell
-//    [_customCell layoutIfNeeded];
-//    
-//    //Get height of the cell
-//    CGFloat height = [_customCell.messageLabel frame].size.height;
-//    
-//    return 300;
-//}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    _customCell = [_chatTableView dequeueReusableCellWithIdentifier:@"CustomCell"];
+    
+    //configure cell
+    NSDictionary *messageData = _testDataArray[indexPath.row];
+    [_customCell.nameLabel setText:messageData[@"name"]];
+    [_customCell.messageLabel setText:messageData[@"message"]];
+    
+    
+    [[_customCell nameLabel]sizeToFit];
+    [[_customCell messageLabel]sizeToFit];
+    
+    //Layout cell
+    [_customCell layoutIfNeeded];
+    
+    //Get height of the cell
+    CGFloat height = [_customCell.messageLabel frame].size.height+[_customCell.nameLabel frame].size.height+20;
+    
+    return height;
+}
 
 @end
