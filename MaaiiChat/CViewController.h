@@ -9,18 +9,20 @@
 #import <UIKit/UIKit.h>
 
 @class CChatBarEventHandler;
-@class CChatScrollViewEventHandler;
+@class CChatTableViewEventHandler;
 @class CUIChatBar;
+@class CUIChatCellTableViewCell;
+@class CChatTableViewDelegate;
 
-@interface CViewController : UIViewController 
+@interface CViewController : UIViewController
 
 
 @property (strong, nonatomic) CChatBarEventHandler *chatBarEventHandler;
-@property (strong, nonatomic) CChatScrollViewEventHandler *chatScrollViewEventHandler;
+@property (strong, nonatomic) CChatTableViewEventHandler *chatScrollViewEventHandler;
+@property (strong, nonatomic) CChatTableViewDelegate *chatTableViewDelegate;
 
 @property (weak, nonatomic) IBOutlet CUIChatBar *chatBar;
-@property (weak, nonatomic) IBOutlet UIScrollView *chatScrollView;
+@property (weak, nonatomic) IBOutlet UITableView *chatTableView;
 @property (weak, nonatomic) IBOutlet UITextField *chatTextField;
-@property (weak, nonatomic) IBOutlet UILabel *label;
 
 @end

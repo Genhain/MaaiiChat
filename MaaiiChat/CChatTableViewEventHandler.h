@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface CChatScrollViewEventHandler : NSObject <UIScrollViewDelegate>
+@interface CChatTableViewEventHandler : NSObject <UIScrollViewDelegate>
 {
     
 }
@@ -16,6 +16,6 @@
 @property (strong, nonatomic) NSDictionary *notificationInfo;
 @property (weak, nonatomic) UIScrollView *scrollView;
 
-+(id)Create:(UIScrollView*)scrollView;
++(id)Create:(UITableView*)scrollView;
 
 @end

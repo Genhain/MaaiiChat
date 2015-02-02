@@ -8,16 +8,18 @@
 
 #import <XCTest/XCTest.h>
 #import "CViewController.h"
-#import "CChatScrollViewEventHandler.h"
+#import "CChatTableViewEventHandler.h"
+#import "CUIChatCellTableViewCell.h"
+#import "UIView+NibLoading.h"
 
-@interface ChatScrollViewTests : XCTestCase
+@interface ChatTableViewTests : XCTestCase
 {
-    CChatScrollViewEventHandler *SUT;
+    CChatTableViewEventHandler *SUT;
 }
 
 @end
 
-@implementation ChatScrollViewTests
+@implementation ChatTableViewTests
 
 - (void)setUp
 {
@@ -89,5 +91,42 @@
     XCTAssertEqual([[SUT scrollView]contentOffset].y,[[SUT scrollView] contentSize].height-[[SUT scrollView]bounds].size.height);
 }
 
+
+@end
+
+@interface ChatTableCustomCell : XCTestCase
+{
+    
+}
+
+@end
+
+@implementation ChatTableCustomCell
+
+- (void)setUp
+{
+    [super setUp];
+    // Put setup code here. This method is called before the invocation of each test method in the class.
+    
+    
+}
+
+- (void)tearDown
+{
+    // Put teardown code here. This method is called after the invocation of each test method in the class.
+    [super tearDown];
+}
+
+-(void)testNameLabelShouldBeConnected
+{
+//    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
+//    
+//    CViewController *CVC = [storyBoard instantiateViewControllerWithIdentifier:@"Chat"];
+//    [CVC view];
+//    
+//    CUIChatCellTableViewCell *SUT = [[CVC chatTableView]cel];
+//    
+//    XCTAssertNotNil([SUT nameLabel]);
+}
 
 @end

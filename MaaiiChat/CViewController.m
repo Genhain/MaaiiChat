@@ -8,11 +8,17 @@
 
 #import "CViewController.h"
 #import "CChatBarEventHandler.h"
-#import "CChatScrollViewEventHandler.h"
+#import "CChatTableViewEventHandler.h"
+#import "CUIBubbleMessage.h"
+#import "UIView+NibLoading.h"
+#import "CUIChatCellTableViewCell.h"
+#import "CChatTableViewDelegate.h"
+#import "FileIOManager.h"
+#import "CChatLog.h"
 
 @interface CViewController ()
 {
-    id currentKeyboard;
+    NSMutableArray *_testDataArray;
 }
 
 @end
@@ -25,7 +31,8 @@
 	// Do any additional setup after loading the view, typically from a nib.
     
     _chatBarEventHandler = [CChatBarEventHandler Create:_chatBar];
-    _chatScrollViewEventHandler = [CChatScrollViewEventHandler Create:_chatScrollView];
+    _chatScrollViewEventHandler = [CChatTableViewEventHandler Create:_chatTableView];
+    _chatTableViewDelegate = [CChatTableViewDelegate Create:_chatTableView];
 }
 
 - (void)didReceiveMemoryWarning
@@ -33,7 +40,5 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-
 
 @end
