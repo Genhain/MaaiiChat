@@ -45,12 +45,15 @@
     [_messageLabel sizeToFit];
     
     UIImage *image;
+    //because the message is saved at random the name label has also have to be set based on the direction.
     if(messageData.direction == Me)
     {
+        [_nameLabel setText:@"Me"];
         image= [[UIImage imageNamed:@"bubble_left"]resizableImageWithCapInsets:UIEdgeInsetsMake(18, 6, 6, 10) resizingMode:UIImageResizingModeStretch];
     }
     else
     {
+        [_nameLabel setText:@"Them"];
         image= [[UIImage imageNamed:@"bubble_right"]resizableImageWithCapInsets:UIEdgeInsetsMake(18, 10, 6, 6) resizingMode:UIImageResizingModeStretch];
     }
     

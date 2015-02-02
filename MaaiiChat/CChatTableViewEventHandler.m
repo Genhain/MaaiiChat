@@ -11,7 +11,7 @@
 
 @implementation CChatTableViewEventHandler
 {
-    
+    BOOL _KeyboardHidden;
 }
 
 +(id)Create:(CUIChatTableView*)tableView
@@ -25,12 +25,20 @@
     if (self)
     {
         _tableView = scrollView;
+        _KeyboardHidden = true;
         
         SEL selector = NSSelectorFromString(@"keyboardWillShow:");
         
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:selector
                                                      name:UIKeyboardWillShowNotification
+                                                   object:nil];
+        
+        selector = NSSelectorFromString(@"keyboardWillHide:");
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:selector
+                                                     name:UIKeyboardWillHideNotification
                                                    object:nil];
         
         [_tableView setContentSize:CGSizeMake(0, _tableView.bounds.size.height)];
@@ -41,6 +49,7 @@
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
 }
 
 - (void)keyboardWillShow:(NSNotification*)notification
@@ -49,10 +58,19 @@
     
     CGRect rect = [[_notificationInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue];
     [self updateScrollView:rect];
+    
+    _KeyboardHidden = NO;
+}
+
+- (void)keyboardWillHide:(NSNotification*)notification
+{
+    
 }
 
 -(void)updateScrollView:(CGRect)rect
 {
+    if(!_KeyboardHidden)return;
+        
     CGRect updatedRect = [_tableView frame];
     
     updatedRect.size.height -= rect.size.height;

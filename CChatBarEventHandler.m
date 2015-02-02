@@ -11,6 +11,9 @@
 #import "CUIChatBar.h"
 
 @interface CChatBarEventHandler ()
+{
+    BOOL _KeyboardHidden;
+}
 
 @end
 
@@ -27,6 +30,8 @@
     self = [super init];
     if (self)
     {
+        _KeyboardHidden = YES;
+        
         _chatBar = chatBar;
         [_chatBar textField].delegate = self;
         
@@ -52,10 +57,14 @@
     
     CGRect rect = [[_notificationInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue];
     [self updateTextFieldWithRect:rect];
+    
+    _KeyboardHidden = NO;
 }
 
 - (void)updateTextFieldWithRect:(CGRect)rect
 {
+    if(!_KeyboardHidden)return;
+    
     CGRect updatedRect = CGRectOffset([_chatBar frame], 0, -rect.size.height);
     
     [UIView animateWithDuration:0.5f animations:^

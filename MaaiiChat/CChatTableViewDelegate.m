@@ -15,6 +15,8 @@
 #import "FileIOManager.h"
 #import "CMessageInfo.h"
 
+NSString *const chatLogID = @"0_maaiiChat";
+
 @interface CChatTableViewDelegate ()
 {
     NSMutableArray *_testDataArray;
@@ -38,7 +40,7 @@
         table.dataSource = self;
         table.delegate = self;
         
-        _testDataArray = [[[CChatLogParser alloc]init] logForFileName:@"0_maaiiChat"].log;
+        _testDataArray = [[[CChatLogParser alloc]init] logForFileName:chatLogID].log;
         
     }
     return self;
@@ -98,6 +100,13 @@
     //Reload table and then scroll to bottom.
     [tableView reloadData];
     [tableView scrollToRowAtIndexPath:[tableView indexPathForLastRow] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+    
+    for(CMessageInfo *obj in _testDataArray)
+    {
+        obj.direction = arc4random() % 2;
+    }
+    
+    [FileIOManager Save:_testDataArray fileName:chatLogID];
 }
 
 - (void)addMessage:(CMessageInfo *)messageInfo
