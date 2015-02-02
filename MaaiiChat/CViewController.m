@@ -13,10 +13,8 @@
 #import "UIView+NibLoading.h"
 #import "CUIChatCellTableViewCell.h"
 #import "CChatTableViewDelegate.h"
-
-#define FONT_SIZE 14.0f
-#define CELL_CONTENT_WIDTH 320.0f
-#define CELL_CONTENT_MARGIN 10.0f
+#import "FileIOManager.h"
+#import "CChatLog.h"
 
 @interface CViewController ()
 {

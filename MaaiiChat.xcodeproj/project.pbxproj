@@ -33,6 +33,11 @@
 		B5A21F9B1A7B45EF0036AD35 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B5A21F991A7B45EF0036AD35 /* InfoPlist.strings */; };
 		B5A21F9D1A7B45EF0036AD35 /* ChatBarEventHandlerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B5A21F9C1A7B45EF0036AD35 /* ChatBarEventHandlerTests.m */; };
 		B5AEDE5C1A7F6D4700734260 /* CChatTableViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B5AEDE5B1A7F6D4700734260 /* CChatTableViewDelegate.m */; };
+		B5AEDE5F1A7F71F800734260 /* CChatLog.m in Sources */ = {isa = PBXBuildFile; fileRef = B5AEDE5E1A7F71F800734260 /* CChatLog.m */; };
+		B5AEDE671A7F733300734260 /* FileLoad.m in Sources */ = {isa = PBXBuildFile; fileRef = B5AEDE621A7F733300734260 /* FileLoad.m */; };
+		B5AEDE681A7F733300734260 /* FileSave.m in Sources */ = {isa = PBXBuildFile; fileRef = B5AEDE641A7F733300734260 /* FileSave.m */; };
+		B5AEDE691A7F733300734260 /* FileIOManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B5AEDE661A7F733300734260 /* FileIOManager.m */; };
+		B5AEDE6D1A7F7E6A00734260 /* CChatLogParser.m in Sources */ = {isa = PBXBuildFile; fileRef = B5AEDE6C1A7F7E6A00734260 /* CChatLogParser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +89,16 @@
 		B5A21F9C1A7B45EF0036AD35 /* ChatBarEventHandlerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatBarEventHandlerTests.m; sourceTree = "<group>"; };
 		B5AEDE5A1A7F6D4700734260 /* CChatTableViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CChatTableViewDelegate.h; sourceTree = "<group>"; };
 		B5AEDE5B1A7F6D4700734260 /* CChatTableViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CChatTableViewDelegate.m; sourceTree = "<group>"; };
+		B5AEDE5D1A7F71F800734260 /* CChatLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CChatLog.h; sourceTree = "<group>"; };
+		B5AEDE5E1A7F71F800734260 /* CChatLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CChatLog.m; sourceTree = "<group>"; };
+		B5AEDE611A7F733300734260 /* FileLoad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileLoad.h; sourceTree = "<group>"; };
+		B5AEDE621A7F733300734260 /* FileLoad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileLoad.m; sourceTree = "<group>"; };
+		B5AEDE631A7F733300734260 /* FileSave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileSave.h; sourceTree = "<group>"; };
+		B5AEDE641A7F733300734260 /* FileSave.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileSave.m; sourceTree = "<group>"; };
+		B5AEDE651A7F733300734260 /* FileIOManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileIOManager.h; sourceTree = "<group>"; };
+		B5AEDE661A7F733300734260 /* FileIOManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileIOManager.m; sourceTree = "<group>"; };
+		B5AEDE6B1A7F7E6A00734260 /* CChatLogParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CChatLogParser.h; sourceTree = "<group>"; };
+		B5AEDE6C1A7F7E6A00734260 /* CChatLogParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CChatLogParser.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +199,8 @@
 		B5A21F741A7B45EF0036AD35 /* MaaiiChat */ = {
 			isa = PBXGroup;
 			children = (
+				B5AEDE6A1A7F7E1F00734260 /* ChatLogging */,
+				B5AEDE601A7F732500734260 /* File I/O */,
 				B5AEDE581A7F6CDA00734260 /* Categories */,
 				B587ADE51A7E7FFF0074CB14 /* CustomCell */,
 				B54F5C791A7DDAF300101010 /* UIBubbleMessage */,
@@ -248,6 +265,30 @@
 				B54F5C821A7E29CE00101010 /* UIView+NibLoading.m */,
 			);
 			name = UI;
+			sourceTree = "<group>";
+		};
+		B5AEDE601A7F732500734260 /* File I/O */ = {
+			isa = PBXGroup;
+			children = (
+				B5AEDE611A7F733300734260 /* FileLoad.h */,
+				B5AEDE621A7F733300734260 /* FileLoad.m */,
+				B5AEDE631A7F733300734260 /* FileSave.h */,
+				B5AEDE641A7F733300734260 /* FileSave.m */,
+				B5AEDE651A7F733300734260 /* FileIOManager.h */,
+				B5AEDE661A7F733300734260 /* FileIOManager.m */,
+			);
+			name = "File I/O";
+			sourceTree = "<group>";
+		};
+		B5AEDE6A1A7F7E1F00734260 /* ChatLogging */ = {
+			isa = PBXGroup;
+			children = (
+				B5AEDE5D1A7F71F800734260 /* CChatLog.h */,
+				B5AEDE5E1A7F71F800734260 /* CChatLog.m */,
+				B5AEDE6B1A7F7E6A00734260 /* CChatLogParser.h */,
+				B5AEDE6C1A7F7E6A00734260 /* CChatLogParser.m */,
+			);
+			name = ChatLogging;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -351,15 +392,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5A21F7F1A7B45EF0036AD35 /* CAppDelegate.m in Sources */,
+				B5AEDE5F1A7F71F800734260 /* CChatLog.m in Sources */,
 				B54F5C831A7E29CE00101010 /* UIView+NibLoading.m in Sources */,
 				B5AEDE5C1A7F6D4700734260 /* CChatTableViewDelegate.m in Sources */,
+				B5AEDE6D1A7F7E6A00734260 /* CChatLogParser.m in Sources */,
 				B5A21F7B1A7B45EF0036AD35 /* main.m in Sources */,
+				B5AEDE671A7F733300734260 /* FileLoad.m in Sources */,
 				B54F5C6C1A7C81F600101010 /* CChatBarEventHandler.m in Sources */,
+				B5AEDE691A7F733300734260 /* FileIOManager.m in Sources */,
 				B54F5C751A7D379D00101010 /* CUIChatBar.m in Sources */,
 				B587ADE41A7E76DE0074CB14 /* CUIChatCellTableViewCell.m in Sources */,
 				B54F5C721A7D12E600101010 /* CChatTableViewEventHandler.m in Sources */,
 				B54F5C7C1A7DDB4300101010 /* CUIBubbleMessage.m in Sources */,
 				B5A21F881A7B45EF0036AD35 /* CViewController.m in Sources */,
+				B5AEDE681A7F733300734260 /* FileSave.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

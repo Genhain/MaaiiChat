@@ -8,6 +8,8 @@
 
 #import "CChatTableViewDelegate.h"
 #import "CUIChatCellTableViewCell.h"
+#import "CChatLogParser.h"
+#import "CChatLog.h"
 
 @interface CChatTableViewDelegate ()
 {
@@ -32,51 +34,7 @@
         table.dataSource = self;
         table.delegate = self;
         
-        _testDataArray = @[@{
-                               @"direction":@0,
-                               @"name":@"them",
-                               @"message":@"Hey, how's it going?"
-                               },
-                           @{
-                               @"direction":@1,
-                               @"name":@"me",
-                               @"message":@"Nothing Much. Just Writing a really long winded sentence to test the functionality of the message height within the cell, so far it seems to be going okay. TDD helped quite a bit here"
-                               },
-                           @{
-                               @"direction":@0,
-                               @"name":@"them",
-                               @"message":@"...Nerd"
-                               },
-                           @{
-                               @"direction":@0,
-                               @"name":@"them",
-                               @"message":@"...Nerd"
-                               },
-                           @{
-                               @"direction":@0,
-                               @"name":@"them",
-                               @"message":@"...Nerd"
-                               },
-                           @{
-                               @"direction":@0,
-                               @"name":@"them",
-                               @"message":@"...Nerd"
-                               },
-                           @{
-                               @"direction":@0,
-                               @"name":@"them",
-                               @"message":@"...Nerd"
-                               },
-                           @{
-                               @"direction":@0,
-                               @"name":@"them",
-                               @"message":@"...Nerd"
-                               },
-                           @{
-                               @"direction":@0,
-                               @"name":@"them",
-                               @"message":@"...Nerd"
-                               }].mutableCopy;
+        _testDataArray = [[[CChatLogParser alloc]init] logForFileName:@"0_maaiiChat"].log;
     }
     return self;
 }
