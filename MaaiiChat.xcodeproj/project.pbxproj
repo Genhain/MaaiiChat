@@ -16,7 +16,7 @@
 		B54F5C7E1A7DDB7300101010 /* CUIBubbleMessage.xib in Resources */ = {isa = PBXBuildFile; fileRef = B54F5C7D1A7DDB7300101010 /* CUIBubbleMessage.xib */; };
 		B54F5C801A7DE53200101010 /* BubbleMessageTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B54F5C7F1A7DE53200101010 /* BubbleMessageTests.m */; };
 		B54F5C831A7E29CE00101010 /* UIView+NibLoading.m in Sources */ = {isa = PBXBuildFile; fileRef = B54F5C821A7E29CE00101010 /* UIView+NibLoading.m */; };
-		B587ADE41A7E76DE0074CB14 /* CUIChatCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B587ADE31A7E76DE0074CB14 /* CUIChatCellTableViewCell.m */; };
+		B587ADE41A7E76DE0074CB14 /* CUITableViewChatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B587ADE31A7E76DE0074CB14 /* CUITableViewChatCell.m */; };
 		B5A21F6F1A7B45EF0036AD35 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5A21F6E1A7B45EF0036AD35 /* Foundation.framework */; };
 		B5A21F711A7B45EF0036AD35 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5A21F701A7B45EF0036AD35 /* CoreGraphics.framework */; };
 		B5A21F731A7B45EF0036AD35 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5A21F721A7B45EF0036AD35 /* UIKit.framework */; };
@@ -38,6 +38,9 @@
 		B5AEDE681A7F733300734260 /* FileSave.m in Sources */ = {isa = PBXBuildFile; fileRef = B5AEDE641A7F733300734260 /* FileSave.m */; };
 		B5AEDE691A7F733300734260 /* FileIOManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B5AEDE661A7F733300734260 /* FileIOManager.m */; };
 		B5AEDE6D1A7F7E6A00734260 /* CChatLogParser.m in Sources */ = {isa = PBXBuildFile; fileRef = B5AEDE6C1A7F7E6A00734260 /* CChatLogParser.m */; };
+		B5AEDE711A7FD2E500734260 /* UITableView+IndexPathFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = B5AEDE701A7FD2E500734260 /* UITableView+IndexPathFunctions.m */; };
+		B5AEDE761A7FE2FC00734260 /* CUIChatTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = B5AEDE751A7FE2FC00734260 /* CUIChatTableView.m */; };
+		B5AEDE791A7FEFF600734260 /* CMessageInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B5AEDE781A7FEFF600734260 /* CMessageInfo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,8 +68,8 @@
 		B54F5C7F1A7DE53200101010 /* BubbleMessageTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BubbleMessageTests.m; sourceTree = "<group>"; };
 		B54F5C811A7E29CE00101010 /* UIView+NibLoading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+NibLoading.h"; sourceTree = "<group>"; };
 		B54F5C821A7E29CE00101010 /* UIView+NibLoading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+NibLoading.m"; sourceTree = "<group>"; };
-		B587ADE21A7E76DE0074CB14 /* CUIChatCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUIChatCellTableViewCell.h; sourceTree = "<group>"; };
-		B587ADE31A7E76DE0074CB14 /* CUIChatCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CUIChatCellTableViewCell.m; sourceTree = "<group>"; };
+		B587ADE21A7E76DE0074CB14 /* CUITableViewChatCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUITableViewChatCell.h; sourceTree = "<group>"; };
+		B587ADE31A7E76DE0074CB14 /* CUITableViewChatCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CUITableViewChatCell.m; sourceTree = "<group>"; };
 		B5A21F6B1A7B45EF0036AD35 /* MaaiiChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MaaiiChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5A21F6E1A7B45EF0036AD35 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B5A21F701A7B45EF0036AD35 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -99,6 +102,13 @@
 		B5AEDE661A7F733300734260 /* FileIOManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileIOManager.m; sourceTree = "<group>"; };
 		B5AEDE6B1A7F7E6A00734260 /* CChatLogParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CChatLogParser.h; sourceTree = "<group>"; };
 		B5AEDE6C1A7F7E6A00734260 /* CChatLogParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CChatLogParser.m; sourceTree = "<group>"; };
+		B5AEDE6F1A7FD2E500734260 /* UITableView+IndexPathFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+IndexPathFunctions.h"; sourceTree = "<group>"; };
+		B5AEDE701A7FD2E500734260 /* UITableView+IndexPathFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+IndexPathFunctions.m"; sourceTree = "<group>"; };
+		B5AEDE731A7FDD0F00734260 /* UITableViewChatMessageDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITableViewChatMessageDelegate.h; sourceTree = "<group>"; };
+		B5AEDE741A7FE2FC00734260 /* CUIChatTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUIChatTableView.h; sourceTree = "<group>"; };
+		B5AEDE751A7FE2FC00734260 /* CUIChatTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CUIChatTableView.m; sourceTree = "<group>"; };
+		B5AEDE771A7FEFF600734260 /* CMessageInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMessageInfo.h; sourceTree = "<group>"; };
+		B5AEDE781A7FEFF600734260 /* CMessageInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMessageInfo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,13 +146,13 @@
 			name = Core;
 			sourceTree = "<group>";
 		};
-		B54F5C781A7D498F00101010 /* View Controllers */ = {
+		B54F5C781A7D498F00101010 /* Main View Controller */ = {
 			isa = PBXGroup;
 			children = (
 				B5A21F861A7B45EF0036AD35 /* CViewController.h */,
 				B5A21F871A7B45EF0036AD35 /* CViewController.m */,
 			);
-			name = "View Controllers";
+			name = "Main View Controller";
 			sourceTree = "<group>";
 		};
 		B54F5C791A7DDAF300101010 /* UIBubbleMessage */ = {
@@ -158,10 +168,8 @@
 		B587ADE51A7E7FFF0074CB14 /* CustomCell */ = {
 			isa = PBXGroup;
 			children = (
-				B587ADE21A7E76DE0074CB14 /* CUIChatCellTableViewCell.h */,
-				B587ADE31A7E76DE0074CB14 /* CUIChatCellTableViewCell.m */,
-				B5AEDE5A1A7F6D4700734260 /* CChatTableViewDelegate.h */,
-				B5AEDE5B1A7F6D4700734260 /* CChatTableViewDelegate.m */,
+				B587ADE21A7E76DE0074CB14 /* CUITableViewChatCell.h */,
+				B587ADE31A7E76DE0074CB14 /* CUITableViewChatCell.m */,
 			);
 			name = CustomCell;
 			sourceTree = "<group>";
@@ -199,17 +207,14 @@
 		B5A21F741A7B45EF0036AD35 /* MaaiiChat */ = {
 			isa = PBXGroup;
 			children = (
+				B5AEDE721A7FDB4100734260 /* ChatView */,
+				B5AEDE6E1A7F94FE00734260 /* ChatBar */,
 				B5AEDE6A1A7F7E1F00734260 /* ChatLogging */,
 				B5AEDE601A7F732500734260 /* File I/O */,
 				B5AEDE581A7F6CDA00734260 /* Categories */,
-				B587ADE51A7E7FFF0074CB14 /* CustomCell */,
 				B54F5C791A7DDAF300101010 /* UIBubbleMessage */,
-				B54F5C781A7D498F00101010 /* View Controllers */,
+				B54F5C781A7D498F00101010 /* Main View Controller */,
 				B54F5C6D1A7CC8AA00101010 /* Core */,
-				B54F5C731A7D379D00101010 /* CUIChatBar.h */,
-				B54F5C741A7D379D00101010 /* CUIChatBar.m */,
-				B54F5C6A1A7C81F600101010 /* CChatBarEventHandler.h */,
-				B54F5C6B1A7C81F600101010 /* CChatBarEventHandler.m */,
 				B54F5C701A7D12E600101010 /* CChatTableViewEventHandler.h */,
 				B54F5C711A7D12E600101010 /* CChatTableViewEventHandler.m */,
 				B5A21F891A7B45EF0036AD35 /* Images.xcassets */,
@@ -263,6 +268,8 @@
 			children = (
 				B54F5C811A7E29CE00101010 /* UIView+NibLoading.h */,
 				B54F5C821A7E29CE00101010 /* UIView+NibLoading.m */,
+				B5AEDE6F1A7FD2E500734260 /* UITableView+IndexPathFunctions.h */,
+				B5AEDE701A7FD2E500734260 /* UITableView+IndexPathFunctions.m */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -287,8 +294,34 @@
 				B5AEDE5E1A7F71F800734260 /* CChatLog.m */,
 				B5AEDE6B1A7F7E6A00734260 /* CChatLogParser.h */,
 				B5AEDE6C1A7F7E6A00734260 /* CChatLogParser.m */,
+				B5AEDE771A7FEFF600734260 /* CMessageInfo.h */,
+				B5AEDE781A7FEFF600734260 /* CMessageInfo.m */,
 			);
 			name = ChatLogging;
+			sourceTree = "<group>";
+		};
+		B5AEDE6E1A7F94FE00734260 /* ChatBar */ = {
+			isa = PBXGroup;
+			children = (
+				B54F5C731A7D379D00101010 /* CUIChatBar.h */,
+				B54F5C741A7D379D00101010 /* CUIChatBar.m */,
+				B54F5C6A1A7C81F600101010 /* CChatBarEventHandler.h */,
+				B54F5C6B1A7C81F600101010 /* CChatBarEventHandler.m */,
+			);
+			name = ChatBar;
+			sourceTree = "<group>";
+		};
+		B5AEDE721A7FDB4100734260 /* ChatView */ = {
+			isa = PBXGroup;
+			children = (
+				B5AEDE731A7FDD0F00734260 /* UITableViewChatMessageDelegate.h */,
+				B5AEDE5A1A7F6D4700734260 /* CChatTableViewDelegate.h */,
+				B5AEDE5B1A7F6D4700734260 /* CChatTableViewDelegate.m */,
+				B587ADE51A7E7FFF0074CB14 /* CustomCell */,
+				B5AEDE741A7FE2FC00734260 /* CUIChatTableView.h */,
+				B5AEDE751A7FE2FC00734260 /* CUIChatTableView.m */,
+			);
+			name = ChatView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -398,10 +431,13 @@
 				B5AEDE6D1A7F7E6A00734260 /* CChatLogParser.m in Sources */,
 				B5A21F7B1A7B45EF0036AD35 /* main.m in Sources */,
 				B5AEDE671A7F733300734260 /* FileLoad.m in Sources */,
+				B5AEDE791A7FEFF600734260 /* CMessageInfo.m in Sources */,
+				B5AEDE761A7FE2FC00734260 /* CUIChatTableView.m in Sources */,
 				B54F5C6C1A7C81F600101010 /* CChatBarEventHandler.m in Sources */,
 				B5AEDE691A7F733300734260 /* FileIOManager.m in Sources */,
 				B54F5C751A7D379D00101010 /* CUIChatBar.m in Sources */,
-				B587ADE41A7E76DE0074CB14 /* CUIChatCellTableViewCell.m in Sources */,
+				B5AEDE711A7FD2E500734260 /* UITableView+IndexPathFunctions.m in Sources */,
+				B587ADE41A7E76DE0074CB14 /* CUITableViewChatCell.m in Sources */,
 				B54F5C721A7D12E600101010 /* CChatTableViewEventHandler.m in Sources */,
 				B54F5C7C1A7DDB4300101010 /* CUIBubbleMessage.m in Sources */,
 				B5A21F881A7B45EF0036AD35 /* CViewController.m in Sources */,

@@ -7,26 +7,32 @@
 //
 
 #import "CChatTableViewDelegate.h"
-#import "CUIChatCellTableViewCell.h"
+#import "CUITableViewChatCell.h"
 #import "CChatLogParser.h"
 #import "CChatLog.h"
+#import "UITableView+IndexPathFunctions.h"
+#import "CUIChatTableView.h"
+#import "FileIOManager.h"
+#import "CMessageInfo.h"
+
+NSString *const chatLogID = @"0_maaiiChat";
 
 @interface CChatTableViewDelegate ()
 {
     NSMutableArray *_testDataArray;
-    CUIChatCellTableViewCell *_customCell;
+    CUITableViewChatCell *_customCell;
 }
 
 @end
 
 @implementation CChatTableViewDelegate
 
-+(instancetype)Create:(UITableView*)table
++(instancetype)Create:(CUIChatTableView*)table
 {
     return [[self alloc]initWithSource:table];
 }
 
-- (instancetype)initWithSource:(UITableView*)table
+- (instancetype)initWithSource:(CUIChatTableView*)table
 {
     self = [super init];
     if (self)
@@ -34,7 +40,30 @@
         table.dataSource = self;
         table.delegate = self;
         
-        _testDataArray = [[[CChatLogParser alloc]init] logForFileName:@"0_maaiiChat"].log;
+        //this is here just to setup a showcase
+//        CMessageInfo *one,*two,*three;
+//        
+//        one = [[CMessageInfo alloc]init];
+//        one.direction = Them;
+//        one.name = @"Them";
+//        one.message = @"Hey, What are you up to?";
+//        
+//        two = [[CMessageInfo alloc]init];
+//        two.direction = Me;
+//        two.name = @"Me";
+//        two.message = @"Nothing much, Just working on some code while attempting to adhere to the SOLID coding principles while also leveraging TDD.";
+//        
+//        three = [[CMessageInfo alloc]init];
+//        three.direction = Them;
+//        three.name = @"Them";
+//        three.message = @"...Nerd";
+//        
+//        _testDataArray = @[one,two,three].mutableCopy;
+//        
+//        [FileIOManager Save:_testDataArray fileName:chatLogID];
+        
+        _testDataArray = [[[CChatLogParser alloc]init] logForFileName:chatLogID].log;
+        
     }
     return self;
 }
@@ -57,9 +86,9 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    CUIChatCellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CustomCell" forIndexPath:indexPath];
+    CUITableViewChatCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CustomCell" forIndexPath:indexPath];
     
-    NSDictionary *messageData = _testDataArray[indexPath.row];
+    CMessageInfo *messageData = _testDataArray[indexPath.row];
     
     [cell setCell:messageData];
     
@@ -72,7 +101,7 @@
     _customCell = [tableView dequeueReusableCellWithIdentifier:@"CustomCell"];
     
     //configure cell
-    NSDictionary *messageData = _testDataArray[indexPath.row];
+    CMessageInfo *messageData = _testDataArray[indexPath.row];
     
     [_customCell setCell:messageData];
     
@@ -84,7 +113,32 @@
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [(CUIChatCellTableViewCell*)cell aboutToDisplay];
+    [(CUITableViewChatCell*)cell aboutToDisplay];
+}
+
+- (void)tableView:(UITableView *)tableView parseChatMessage:(CMessageInfo *)messageInfo
+{
+    [self addMessage:messageInfo];
+    //Reload table and then scroll to bottom.
+    [tableView reloadData];
+    [tableView scrollToRowAtIndexPath:[tableView indexPathForLastRow] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+    
+    //randomise last message direction
+    CMessageInfo* msg = [_testDataArray lastObject];
+    msg.direction = arc4random() % 2;
+    
+    [FileIOManager Save:_testDataArray fileName:chatLogID];
+}
+
+- (void)addMessage:(CMessageInfo *)messageInfo
+{
+    [_testDataArray addObject:messageInfo];
+}
+
+- (void)clearChat
+{
+    [_testDataArray removeAllObjects];
+    [FileIOManager Save:_testDataArray fileName:chatLogID];
 }
 
 @end

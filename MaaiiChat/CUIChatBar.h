@@ -7,9 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UITableViewChatMessageDelegate.h"
+
+@class CUIChatTableView;
 
 @interface CUIChatBar : UIView
 
+@property (strong, nonatomic) NSString *message;
+
 @property (weak, nonatomic) IBOutlet UITextField *textField;
+@property (weak ,nonatomic) IBOutlet UIButton *sendButton;
+
+- (void)sendMessage:(CUIChatTableView*)chatView;
 
 @end
