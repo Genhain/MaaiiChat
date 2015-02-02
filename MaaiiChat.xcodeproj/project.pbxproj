@@ -40,6 +40,7 @@
 		B5AEDE6D1A7F7E6A00734260 /* CChatLogParser.m in Sources */ = {isa = PBXBuildFile; fileRef = B5AEDE6C1A7F7E6A00734260 /* CChatLogParser.m */; };
 		B5AEDE711A7FD2E500734260 /* UITableView+IndexPathFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = B5AEDE701A7FD2E500734260 /* UITableView+IndexPathFunctions.m */; };
 		B5AEDE761A7FE2FC00734260 /* CUIChatTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = B5AEDE751A7FE2FC00734260 /* CUIChatTableView.m */; };
+		B5AEDE791A7FEFF600734260 /* CMessageInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B5AEDE781A7FEFF600734260 /* CMessageInfo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +107,8 @@
 		B5AEDE731A7FDD0F00734260 /* UITableViewChatMessageDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITableViewChatMessageDelegate.h; sourceTree = "<group>"; };
 		B5AEDE741A7FE2FC00734260 /* CUIChatTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUIChatTableView.h; sourceTree = "<group>"; };
 		B5AEDE751A7FE2FC00734260 /* CUIChatTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CUIChatTableView.m; sourceTree = "<group>"; };
+		B5AEDE771A7FEFF600734260 /* CMessageInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMessageInfo.h; sourceTree = "<group>"; };
+		B5AEDE781A7FEFF600734260 /* CMessageInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMessageInfo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -291,6 +294,8 @@
 				B5AEDE5E1A7F71F800734260 /* CChatLog.m */,
 				B5AEDE6B1A7F7E6A00734260 /* CChatLogParser.h */,
 				B5AEDE6C1A7F7E6A00734260 /* CChatLogParser.m */,
+				B5AEDE771A7FEFF600734260 /* CMessageInfo.h */,
+				B5AEDE781A7FEFF600734260 /* CMessageInfo.m */,
 			);
 			name = ChatLogging;
 			sourceTree = "<group>";
@@ -426,6 +431,7 @@
 				B5AEDE6D1A7F7E6A00734260 /* CChatLogParser.m in Sources */,
 				B5A21F7B1A7B45EF0036AD35 /* main.m in Sources */,
 				B5AEDE671A7F733300734260 /* FileLoad.m in Sources */,
+				B5AEDE791A7FEFF600734260 /* CMessageInfo.m in Sources */,
 				B5AEDE761A7FE2FC00734260 /* CUIChatTableView.m in Sources */,
 				B54F5C6C1A7C81F600101010 /* CChatBarEventHandler.m in Sources */,
 				B5AEDE691A7F733300734260 /* FileIOManager.m in Sources */,

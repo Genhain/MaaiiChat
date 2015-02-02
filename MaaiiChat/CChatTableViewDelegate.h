@@ -15,6 +15,6 @@
 
 +(instancetype)Create:(CUIChatTableView*)table;
 
-- (void)addMessage:(NSMutableDictionary*)messageInfo;
+- (void)addMessage:(CMessageInfo*)messageInfo;
 
 @end

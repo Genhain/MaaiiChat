@@ -8,13 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@class CMessageInfo;
+
 @interface CUITableViewChatCell : UITableViewCell 
 
 @property (weak,    nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak,    nonatomic) IBOutlet UILabel *messageLabel;
 @property (weak,    nonatomic) IBOutlet UIImageView *bubbleImage;
 
-- (void)setCell:(NSDictionary*)messageData;
+- (void)setCell:(CMessageInfo*)messageData;
 - (void)aboutToDisplay;
 
 @end

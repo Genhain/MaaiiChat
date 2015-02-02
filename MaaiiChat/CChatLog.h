@@ -8,8 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+@class CMessageInfo;
+
 @interface CChatLog : NSObject <NSCoding>
 
+//array of messageinfo
 @property (strong, nonatomic)NSMutableArray *log;
 
 @end

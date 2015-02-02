@@ -12,6 +12,8 @@
 #import "CChatLog.h"
 #import "UITableView+IndexPathFunctions.h"
 #import "CUIChatTableView.h"
+#import "FileIOManager.h"
+#import "CMessageInfo.h"
 
 @interface CChatTableViewDelegate ()
 {
@@ -37,6 +39,7 @@
         table.delegate = self;
         
         _testDataArray = [[[CChatLogParser alloc]init] logForFileName:@"0_maaiiChat"].log;
+        
     }
     return self;
 }
@@ -61,7 +64,7 @@
 {
     CUITableViewChatCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CustomCell" forIndexPath:indexPath];
     
-    NSDictionary *messageData = _testDataArray[indexPath.row];
+    CMessageInfo *messageData = _testDataArray[indexPath.row];
     
     [cell setCell:messageData];
     
@@ -74,7 +77,7 @@
     _customCell = [tableView dequeueReusableCellWithIdentifier:@"CustomCell"];
     
     //configure cell
-    NSDictionary *messageData = _testDataArray[indexPath.row];
+    CMessageInfo *messageData = _testDataArray[indexPath.row];
     
     [_customCell setCell:messageData];
     
@@ -89,7 +92,7 @@
     [(CUITableViewChatCell*)cell aboutToDisplay];
 }
 
-- (void)tableView:(UITableView *)tableView parseChatMessage:(NSMutableDictionary *)messageInfo
+- (void)tableView:(UITableView *)tableView parseChatMessage:(CMessageInfo *)messageInfo
 {
     [self addMessage:messageInfo];
     //Reload table and then scroll to bottom.
@@ -97,7 +100,7 @@
     [tableView scrollToRowAtIndexPath:[tableView indexPathForLastRow] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
 }
 
-- (void)addMessage:(NSMutableDictionary *)messageInfo
+- (void)addMessage:(CMessageInfo *)messageInfo
 {
     [_testDataArray addObject:messageInfo];
 }

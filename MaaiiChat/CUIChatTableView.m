@@ -8,10 +8,11 @@
 
 #import "CUIChatTableView.h"
 #import "UITableViewChatMessageDelegate.h"
+#import "CMessageInfo.h"
 
 @implementation CUIChatTableView
 
-- (void)addMessage:(NSMutableDictionary*)messageInfo
+- (void)addMessage:(CMessageInfo*)messageInfo
 {
     [(id<UITableViewChatMessageDelegate>)self.delegate tableView:self parseChatMessage:messageInfo];
 }

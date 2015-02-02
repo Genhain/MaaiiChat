@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class CMessageInfo;
+
 @interface CUIChatTableView : UITableView
 
-- (void)addMessage:(NSMutableDictionary*)messageInfo;
+- (void)addMessage:(CMessageInfo*)messageInfo;
 
 @end

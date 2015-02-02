@@ -8,8 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+@class CMessageInfo;
+
 @protocol UITableViewChatMessageDelegate <NSObject>
 
-- (void)tableView:(UITableView*) tableView parseChatMessage:(NSMutableDictionary*)messageInfo;
+- (void)tableView:(UITableView*) tableView parseChatMessage:(CMessageInfo*)messageInfo;
 
 @end

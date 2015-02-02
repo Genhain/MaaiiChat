@@ -7,6 +7,7 @@
 //
 
 #import "CUITableViewChatCell.h"
+#import "CMessageInfo.h"
 
 @interface CUITableViewChatCell ()
 {
@@ -31,20 +32,20 @@
     // Configure the view for the selected state
 }
 
-- (void)setCell:(NSDictionary*)messageData
+- (void)setCell:(CMessageInfo*)messageData
 {
     //Reset the reused cell 
     [_nameLabel setFrame:_initialNameLabel.frame];
     [_messageLabel setFrame:_initalMessageLabel.frame];
     
-    [_nameLabel setText:messageData[@"name"]];
-    [_messageLabel setText:messageData[@"message"]];
+    [_nameLabel setText:messageData.name];
+    [_messageLabel setText:messageData.message];
     
     [_nameLabel sizeToFit];
     [_messageLabel sizeToFit];
     
     UIImage *image;
-    if([messageData[@"direction"] boolValue])
+    if(messageData.direction == Me)
     {
         image= [[UIImage imageNamed:@"bubble_left"]resizableImageWithCapInsets:UIEdgeInsetsMake(18, 6, 6, 10) resizingMode:UIImageResizingModeStretch];
     }

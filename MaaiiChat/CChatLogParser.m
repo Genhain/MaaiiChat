@@ -31,7 +31,7 @@
 
 - (CChatLog*)logForFileName:(NSString*)fileName
 {
-    _chatLog = [FileIOManager LoadObjectForFileName:fileName];
+    _chatLog.log = [FileIOManager LoadObjectForFileName:fileName];
     
     return _chatLog;
 }

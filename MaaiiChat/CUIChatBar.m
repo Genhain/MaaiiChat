@@ -8,6 +8,7 @@
 
 #import "CUIChatBar.h"
 #import "CUIChatTableView.h"
+#import "CMessageInfo.h"
 
 @implementation CUIChatBar
 
@@ -24,7 +25,12 @@
 - (void)sendMessage:(CUIChatTableView*)chatView
 {
     _message = _textField.text;
-    [chatView addMessage:@{@"direction":@1,@"name":@"Me",@"message":_message}.mutableCopy];
+    CMessageInfo *msg = [[CMessageInfo alloc] init];
+    msg.direction = Me;
+    msg.name = @"Me";
+    msg.message = _message;
+    
+    [chatView addMessage:msg];
 }
 
 @end
