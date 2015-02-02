@@ -9,8 +9,12 @@
 #import <XCTest/XCTest.h>
 #import "CViewController.h"
 #import "CUIChatBar.h"
+#import "CUITableViewChatCell.h"
 
 @interface ChatBarTests : XCTestCase
+{
+    CUIChatBar *SUT;
+}
 
 @end
 
@@ -20,6 +24,13 @@
 {
     [super setUp];
     // Put setup code here. This method is called before the invocation of each test method in the class.
+    
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
+    
+    CViewController *CVC = [storyBoard instantiateViewControllerWithIdentifier:@"Chat"];
+    [CVC view];
+    
+     SUT = [CVC chatBar];
 }
 
 - (void)tearDown
@@ -30,26 +41,27 @@
 
 - (void)testChatBarShouldBeConnected
 {
-    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
-    
-    CViewController *CVC = [storyBoard instantiateViewControllerWithIdentifier:@"Chat"];
-    [CVC view];
-    
-    CUIChatBar *SUT = [CVC chatBar];
-    
     XCTAssertNotNil(SUT);
+}
+
+- (void)testChatBarMessageToSendNotNil
+{
+    XCTAssertNotNil([SUT message]);
+}
+
+- (void)testChatBarMessageToSendIntiallyEmpty
+{
+    XCTAssertEqual([SUT message].length,0);
 }
 
 - (void)testChatBarTextFieldNotNil
 {
-    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
-    
-    CViewController *CVC = [storyBoard instantiateViewControllerWithIdentifier:@"Chat"];
-    [CVC view];
-    
-    CUIChatBar *SUT = [CVC chatBar];
-    
     XCTAssertNotNil([SUT textField]);
+}
+
+- (void)testChatBarButtonShouldBeConnected
+{
+    XCTAssertNotNil([SUT sendButton]);
 }
 
 
@@ -100,5 +112,91 @@
     id<UITextFieldDelegate> delegate = [SUT delegate];
     XCTAssertNotNil(delegate);
 }
+
+
+@end
+
+@interface ChatBarSendButtonTests : XCTestCase
+{
+    
+    CViewController *CVC;
+    UIButton *SUT;
+}
+@end
+
+@implementation ChatBarSendButtonTests
+
+- (void)setUp
+{
+    [super setUp];
+    // Put setup code here. This method is called before the invocation of each test method in the class.
+    
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
+    
+    CVC = [storyBoard instantiateViewControllerWithIdentifier:@"Chat"];
+    [CVC view];
+    
+    SUT = [[CVC chatBar] sendButton];
+}
+
+- (void)tearDown
+{
+    // Put teardown code here. This method is called after the invocation of each test method in the class.
+    [super tearDown];
+}
+
+//Should Move this test to elsewhere
+- (void)testSendButtonAction
+{
+    XCTAssertNotEqual([SUT actionsForTarget:CVC forControlEvent:UIControlEventTouchUpInside].count, 0);
+}
+
+- (void)testActionGetStringFromTextField
+{
+    //given
+    NSString *string = @"hello";
+    [[CVC chatBar]textField].text = string;
+    
+    //when
+    [CVC sendMessage:nil];
+    
+    //then
+    XCTAssertEqualObjects([[CVC chatBar]message], string);
+}
+
+- (void)testActionSetsCellMessageStringTesting
+{
+    //given
+    NSString *string = @"testing";
+    [[CVC chatBar]textField].text = string;
+    
+    //when
+    [CVC sendMessage:nil];
+    NSIndexPath *path = [NSIndexPath indexPathForRow:[[CVC chatTableView] numberOfRowsInSection:[CVC chatTableView].numberOfSections - 1] - 1 inSection:[CVC chatTableView].numberOfSections - 1];
+    
+    CUITableViewChatCell *cell = (CUITableViewChatCell*)[[CVC chatTableView] cellForRowAtIndexPath:path];
+    
+    //then
+    XCTAssertEqualObjects([cell messageLabel].text, @"testing");
+    XCTAssertEqualObjects([cell nameLabel].text, @"Me");
+}
+
+- (void)testActionSetsCellMessageStringTestingTwo
+{
+    //given
+    NSString *string = @"testingTwo";
+    [[CVC chatBar]textField].text = string;
+    
+    //when
+    [CVC sendMessage:nil];
+    NSIndexPath *path = [NSIndexPath indexPathForRow:[[CVC chatTableView] numberOfRowsInSection:[CVC chatTableView].numberOfSections - 1] - 1 inSection:[CVC chatTableView].numberOfSections - 1];
+    
+    CUITableViewChatCell *cell = (CUITableViewChatCell*)[[CVC chatTableView] cellForRowAtIndexPath:path];
+    
+    //then
+    XCTAssertEqualObjects([cell messageLabel].text, @"testingTwo");
+    XCTAssertEqualObjects([cell nameLabel].text, @"Me");
+}
+
 
 @end
