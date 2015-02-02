@@ -32,7 +32,7 @@
                 <outlet property="bubbleImage" destination="SEF-dO-27p" id="iBa-us-mtE"/>
                 <outlet property="bubbleLabel" destination="f0f-0U-lRa" id="iOi-aw-ry6"/>
             </connections>
-            <point key="canvasLocation" x="81" y="17"/>
+            <point key="canvasLocation" x="103" y="32"/>
         </view>
     </objects>
     <resources>

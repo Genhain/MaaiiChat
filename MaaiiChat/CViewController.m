@@ -56,6 +56,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+//Move to a delegate class
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return _testDataArray.count;
@@ -67,15 +68,11 @@
     
     NSDictionary *messageData = _testDataArray[indexPath.row];
     
-    [self setCell:cell forData:messageData];
+    [cell setCell:messageData];
     
     return cell;
 }
 
-- (void)setCell:(CUIChatCellTableViewCell*)cell forData:(NSDictionary*)messageData
-{
-    [cell setCell:messageData];
-}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -83,15 +80,8 @@
     
     //configure cell
     NSDictionary *messageData = _testDataArray[indexPath.row];
-    [_customCell.nameLabel setText:messageData[@"name"]];
-    [_customCell.messageLabel setText:messageData[@"message"]];
-    
-    
-    [[_customCell nameLabel]sizeToFit];
-    [[_customCell messageLabel]sizeToFit];
-    
-    //Layout cell
-    [_customCell layoutIfNeeded];
+   
+    [_customCell setCell:messageData];
     
     //Get height of the cell
     CGFloat height = [_customCell.messageLabel frame].size.height+[_customCell.nameLabel frame].size.height+20;
