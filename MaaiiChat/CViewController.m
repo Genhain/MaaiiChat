@@ -45,7 +45,7 @@
                @{
                    @"direction":@1,
                    @"name":@"me",
-                   @"message":@"Nothing Much. Just Writing a really long winded sentence to test the functionality of the message height."
+                   @"message":@"Nothing Much. Just Writing a really long winded sentence to test the functionality of the message height within the cell, so far it seems to be going okay. TDD helped quite a bit here"
                    }].mutableCopy;
 
 }
@@ -63,29 +63,18 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    CUIChatCellTableViewCell *cell = [_chatTableView dequeueReusableCellWithIdentifier:@"CustomCell"];
+    CUIChatCellTableViewCell *cell = [_chatTableView dequeueReusableCellWithIdentifier:@"CustomCell" forIndexPath:indexPath];
     
     NSDictionary *messageData = _testDataArray[indexPath.row];
-    [cell.nameLabel setText:messageData[@"name"]];
-    [cell.messageLabel setText:messageData[@"message"]];
     
-    [[cell nameLabel]sizeToFit];
-    [[cell messageLabel]sizeToFit];
-    
-    UIImage *image;
-    if([messageData[@"direction"] boolValue])
-    {
-        image= [[UIImage imageNamed:@"bubble_left"]resizableImageWithCapInsets:UIEdgeInsetsMake(18, 6, 6, 10) resizingMode:UIImageResizingModeStretch];
-    }
-    else
-    {
-         image= [[UIImage imageNamed:@"bubble_right"]resizableImageWithCapInsets:UIEdgeInsetsMake(18, 10, 6, 6) resizingMode:UIImageResizingModeStretch];
-    }
-    
-    [[cell bubbleImage]setImage:image];
-    [[cell bubbleImage]setFrame:CGRectMake([cell nameLabel].frame.origin.x, 0, [cell messageLabel].frame.size.width+15, [cell messageLabel].frame.size.height + [cell nameLabel].frame.size.height + 15)];
+    [self setCell:cell forData:messageData];
     
     return cell;
+}
+
+- (void)setCell:(CUIChatCellTableViewCell*)cell forData:(NSDictionary*)messageData
+{
+    [cell setCell:messageData];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

@@ -14,4 +14,6 @@
 @property (weak,    nonatomic) IBOutlet UILabel *messageLabel;
 @property (weak,    nonatomic) IBOutlet UIImageView *bubbleImage;
 
+- (void)setCell:(NSDictionary*)messageData;
+
 @end
