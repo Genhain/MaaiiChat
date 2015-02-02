@@ -31,6 +31,8 @@
     msg.message = _message;
     
     [chatView addMessage:msg];
+    
+    [_textField setText:@""];
 }
 
 @end
