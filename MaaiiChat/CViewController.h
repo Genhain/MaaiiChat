@@ -11,7 +11,7 @@
 @class CChatBarEventHandler;
 @class CChatTableViewEventHandler;
 @class CUIChatBar;
-@class CUIChatCellTableViewCell;
+@class CUITableViewChatCell;
 @class CChatTableViewDelegate;
 
 @interface CViewController : UIViewController
@@ -24,5 +24,7 @@
 @property (weak, nonatomic) IBOutlet CUIChatBar *chatBar;
 @property (weak, nonatomic) IBOutlet UITableView *chatTableView;
 @property (weak, nonatomic) IBOutlet UITextField *chatTextField;
+
+- (IBAction)sendMessage:(id)sender;
 
 @end

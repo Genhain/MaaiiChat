@@ -10,4 +10,14 @@
 
 @implementation CUIChatBar
 
+- (instancetype)initWithCoder:(NSCoder *)coder
+{
+    self = [super initWithCoder:coder];
+    if (self)
+    {
+        _message = [NSString string];
+    }
+    return self;
+}
+
 @end

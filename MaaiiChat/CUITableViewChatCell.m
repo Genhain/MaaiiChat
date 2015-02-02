@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 Ben. All rights reserved.
 //
 
-#import "CUIChatCellTableViewCell.h"
+#import "CUITableViewChatCell.h"
 
-@interface CUIChatCellTableViewCell ()
+@interface CUITableViewChatCell ()
 {
     UILabel *_initialNameLabel;
     UILabel *_initalMessageLabel;
@@ -16,7 +16,7 @@
 
 @end
 
-@implementation CUIChatCellTableViewCell
+@implementation CUITableViewChatCell
 
 - (void)awakeFromNib
 {

@@ -7,14 +7,14 @@
 //
 
 #import "CChatTableViewDelegate.h"
-#import "CUIChatCellTableViewCell.h"
+#import "CUITableViewChatCell.h"
 #import "CChatLogParser.h"
 #import "CChatLog.h"
 
 @interface CChatTableViewDelegate ()
 {
     NSMutableArray *_testDataArray;
-    CUIChatCellTableViewCell *_customCell;
+    CUITableViewChatCell *_customCell;
 }
 
 @end
@@ -57,7 +57,7 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    CUIChatCellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CustomCell" forIndexPath:indexPath];
+    CUITableViewChatCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CustomCell" forIndexPath:indexPath];
     
     NSDictionary *messageData = _testDataArray[indexPath.row];
     
@@ -84,7 +84,12 @@
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [(CUIChatCellTableViewCell*)cell aboutToDisplay];
+    [(CUITableViewChatCell*)cell aboutToDisplay];
+}
+
+- (void)addMessage:(NSMutableDictionary *)messageInfo
+{
+    [_testDataArray addObject:messageInfo];
 }
 
 @end

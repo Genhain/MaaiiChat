@@ -12,4 +12,6 @@
 
 +(instancetype)Create:(UITableView*)table;
 
+- (void)addMessage:(NSMutableDictionary*)messageInfo;
+
 @end

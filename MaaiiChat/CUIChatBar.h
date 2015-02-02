@@ -10,6 +10,9 @@
 
 @interface CUIChatBar : UIView
 
+@property (strong, nonatomic) NSString *message;
+
 @property (weak, nonatomic) IBOutlet UITextField *textField;
+@property (weak ,nonatomic) IBOutlet UIButton *sendButton;
 
 @end
