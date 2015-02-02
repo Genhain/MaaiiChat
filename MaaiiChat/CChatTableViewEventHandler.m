@@ -7,24 +7,24 @@
 //
 
 #import "CChatTableViewEventHandler.h"
+#import "CUIChatTableView.h"
 
 @implementation CChatTableViewEventHandler
 {
     
 }
 
-+(id)Create:(UIScrollView*)scrollView
++(id)Create:(CUIChatTableView*)tableView
 {
-    return [[CChatTableViewEventHandler alloc]init:scrollView];
+    return [[CChatTableViewEventHandler alloc]init:tableView];
 }
 
-- (instancetype)init:(UIScrollView*)scrollView
+- (instancetype)init:(CUIChatTableView*)scrollView
 {
     self = [super init];
     if (self)
     {
-        _scrollView = scrollView;
-        scrollView.delegate = self;
+        _tableView = scrollView;
         
         SEL selector = NSSelectorFromString(@"keyboardWillShow:");
         
@@ -33,7 +33,7 @@
                                                      name:UIKeyboardWillShowNotification
                                                    object:nil];
         
-        [_scrollView setContentSize:CGSizeMake(0, _scrollView.bounds.size.height)];
+        [_tableView setContentSize:CGSizeMake(0, _tableView.bounds.size.height)];
     }
     return self;
 }
@@ -53,16 +53,16 @@
 
 -(void)updateScrollView:(CGRect)rect
 {
-    CGRect updatedRect = [_scrollView frame];
+    CGRect updatedRect = [_tableView frame];
     
     updatedRect.size.height -= rect.size.height;
     
-    CGPoint bottomOffset = CGPointMake(0, _scrollView.contentSize.height - updatedRect.size.height);
-    [_scrollView setContentOffset:bottomOffset animated:YES];
+    CGPoint bottomOffset = CGPointMake(0, _tableView.contentSize.height - updatedRect.size.height);
+    [_tableView setContentOffset:bottomOffset animated:YES];
     
     [UIView animateWithDuration:0.5f animations:^
      {
-         [_scrollView setFrame:updatedRect];
+         [_tableView setFrame:updatedRect];
      } ];
 }
 

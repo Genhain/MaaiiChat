@@ -9,9 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "UITableViewChatMessageDelegate.h"
 
+@class CUIChatTableView;
+
 @interface CChatTableViewDelegate : UITableViewCell <UITableViewDataSource,UITableViewDelegate,UITableViewChatMessageDelegate>
 
-+(instancetype)Create:(UITableView*)table;
++(instancetype)Create:(CUIChatTableView*)table;
 
 - (void)addMessage:(NSMutableDictionary*)messageInfo;
 

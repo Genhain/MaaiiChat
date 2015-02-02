@@ -21,10 +21,10 @@
     return self;
 }
 
-- (void)sendMessage:(UITableView*)tableView
+- (void)sendMessage:(CUIChatTableView*)chatView
 {
     _message = _textField.text;
-    [(CUIChatTableView*)tableView addMessage:@{@"direction":@1,@"name":@"Me",@"message":_message}.mutableCopy];
+    [chatView addMessage:@{@"direction":@1,@"name":@"Me",@"message":_message}.mutableCopy];
 }
 
 @end

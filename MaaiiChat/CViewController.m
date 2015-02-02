@@ -33,7 +33,7 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     _chatBarEventHandler = [CChatBarEventHandler Create:_chatBar];
-    _chatScrollViewEventHandler = [CChatTableViewEventHandler Create:_chatTableView];
+    _chatTableViewEventHandler = [CChatTableViewEventHandler Create:_chatTableView];
     _chatTableViewDelegate = [CChatTableViewDelegate Create:_chatTableView];
 }
 

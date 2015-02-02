@@ -8,14 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
-@interface CChatTableViewEventHandler : NSObject <UIScrollViewDelegate>
+@class CUIChatTableView;
+
+@interface CChatTableViewEventHandler : NSObject
 {
     
 }
 
 @property (strong, nonatomic) NSDictionary *notificationInfo;
-@property (weak, nonatomic) UIScrollView *scrollView;
+@property (weak, nonatomic) CUIChatTableView *tableView;
 
-+(id)Create:(UITableView*)scrollView;
++(id)Create:(CUIChatTableView*)tableView;
 
 @end

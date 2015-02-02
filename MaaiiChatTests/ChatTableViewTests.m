@@ -32,7 +32,7 @@
     CViewController *CVC = [storyBoard instantiateViewControllerWithIdentifier:@"Chat"];
     [CVC view];
     
-    SUT = [CVC chatScrollViewEventHandler];
+    SUT = [CVC chatTableViewEventHandler];
 }
 
 - (void)tearDown
@@ -43,7 +43,7 @@
 
 - (void)testScrollViewShouldBeConnected
 {
-    XCTAssertNotNil([SUT scrollView]);
+    XCTAssertNotNil([SUT tableView]);
 }
 
 - (void)testClassDoesRespondToKeyboardWillAppearNotification
@@ -70,7 +70,7 @@
 
 - (void)testScrollViewShouldScrollUpOnKeyboardWillAppear
 {
-    CGRect scrollViewIntial = [[SUT scrollView] frame];
+    CGRect scrollViewIntial = [[SUT tableView] frame];
     CGRect keyboardFrame = CGRectMake(0, 0, 0, 30);
     
     [[NSNotificationCenter defaultCenter] postNotificationName:UIKeyboardWillShowNotification

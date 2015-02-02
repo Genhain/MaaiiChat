@@ -13,16 +13,17 @@
 @class CUIChatBar;
 @class CUITableViewChatCell;
 @class CChatTableViewDelegate;
+@class CUIChatTableView;
 
 @interface CViewController : UIViewController
 
 
 @property (strong, nonatomic) CChatBarEventHandler *chatBarEventHandler;
-@property (strong, nonatomic) CChatTableViewEventHandler *chatScrollViewEventHandler;
+@property (strong, nonatomic) CChatTableViewEventHandler *chatTableViewEventHandler;
 @property (strong, nonatomic) CChatTableViewDelegate *chatTableViewDelegate;
 
 @property (weak, nonatomic) IBOutlet CUIChatBar *chatBar;
-@property (weak, nonatomic) IBOutlet UITableView *chatTableView;
+@property (weak, nonatomic) IBOutlet CUIChatTableView *chatTableView;
 @property (weak, nonatomic) IBOutlet UITextField *chatTextField;
 
 - (IBAction)sendMessage:(id)sender;

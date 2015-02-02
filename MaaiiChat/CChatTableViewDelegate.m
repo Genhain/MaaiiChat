@@ -11,6 +11,7 @@
 #import "CChatLogParser.h"
 #import "CChatLog.h"
 #import "UITableView+IndexPathFunctions.h"
+#import "CUIChatTableView.h"
 
 @interface CChatTableViewDelegate ()
 {
@@ -22,12 +23,12 @@
 
 @implementation CChatTableViewDelegate
 
-+(instancetype)Create:(UITableView*)table
++(instancetype)Create:(CUIChatTableView*)table
 {
     return [[self alloc]initWithSource:table];
 }
 
-- (instancetype)initWithSource:(UITableView*)table
+- (instancetype)initWithSource:(CUIChatTableView*)table
 {
     self = [super init];
     if (self)
