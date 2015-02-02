@@ -32,6 +32,7 @@
 		B5A21F931A7B45EF0036AD35 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5A21F721A7B45EF0036AD35 /* UIKit.framework */; };
 		B5A21F9B1A7B45EF0036AD35 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B5A21F991A7B45EF0036AD35 /* InfoPlist.strings */; };
 		B5A21F9D1A7B45EF0036AD35 /* ChatBarEventHandlerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B5A21F9C1A7B45EF0036AD35 /* ChatBarEventHandlerTests.m */; };
+		B5AEDE5C1A7F6D4700734260 /* CChatTableViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B5AEDE5B1A7F6D4700734260 /* CChatTableViewDelegate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,8 @@
 		B5A21F981A7B45EF0036AD35 /* MaaiiChatTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MaaiiChatTests-Info.plist"; sourceTree = "<group>"; };
 		B5A21F9A1A7B45EF0036AD35 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B5A21F9C1A7B45EF0036AD35 /* ChatBarEventHandlerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatBarEventHandlerTests.m; sourceTree = "<group>"; };
+		B5AEDE5A1A7F6D4700734260 /* CChatTableViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CChatTableViewDelegate.h; sourceTree = "<group>"; };
+		B5AEDE5B1A7F6D4700734260 /* CChatTableViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CChatTableViewDelegate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,8 +133,6 @@
 		B54F5C791A7DDAF300101010 /* UIBubbleMessage */ = {
 			isa = PBXGroup;
 			children = (
-				B54F5C811A7E29CE00101010 /* UIView+NibLoading.h */,
-				B54F5C821A7E29CE00101010 /* UIView+NibLoading.m */,
 				B54F5C7A1A7DDB4300101010 /* CUIBubbleMessage.h */,
 				B54F5C7B1A7DDB4300101010 /* CUIBubbleMessage.m */,
 				B54F5C7D1A7DDB7300101010 /* CUIBubbleMessage.xib */,
@@ -144,6 +145,8 @@
 			children = (
 				B587ADE21A7E76DE0074CB14 /* CUIChatCellTableViewCell.h */,
 				B587ADE31A7E76DE0074CB14 /* CUIChatCellTableViewCell.m */,
+				B5AEDE5A1A7F6D4700734260 /* CChatTableViewDelegate.h */,
+				B5AEDE5B1A7F6D4700734260 /* CChatTableViewDelegate.m */,
 			);
 			name = CustomCell;
 			sourceTree = "<group>";
@@ -181,6 +184,7 @@
 		B5A21F741A7B45EF0036AD35 /* MaaiiChat */ = {
 			isa = PBXGroup;
 			children = (
+				B5AEDE581A7F6CDA00734260 /* Categories */,
 				B587ADE51A7E7FFF0074CB14 /* CustomCell */,
 				B54F5C791A7DDAF300101010 /* UIBubbleMessage */,
 				B54F5C781A7D498F00101010 /* View Controllers */,
@@ -227,6 +231,23 @@
 				B5A21F991A7B45EF0036AD35 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B5AEDE581A7F6CDA00734260 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				B5AEDE591A7F6CEA00734260 /* UI */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		B5AEDE591A7F6CEA00734260 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				B54F5C811A7E29CE00101010 /* UIView+NibLoading.h */,
+				B54F5C821A7E29CE00101010 /* UIView+NibLoading.m */,
+			);
+			name = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -331,6 +352,7 @@
 			files = (
 				B5A21F7F1A7B45EF0036AD35 /* CAppDelegate.m in Sources */,
 				B54F5C831A7E29CE00101010 /* UIView+NibLoading.m in Sources */,
+				B5AEDE5C1A7F6D4700734260 /* CChatTableViewDelegate.m in Sources */,
 				B5A21F7B1A7B45EF0036AD35 /* main.m in Sources */,
 				B54F5C6C1A7C81F600101010 /* CChatBarEventHandler.m in Sources */,
 				B54F5C751A7D379D00101010 /* CUIChatBar.m in Sources */,

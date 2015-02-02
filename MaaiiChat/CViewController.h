@@ -12,16 +12,17 @@
 @class CChatTableViewEventHandler;
 @class CUIChatBar;
 @class CUIChatCellTableViewCell;
+@class CChatTableViewDelegate;
 
-@interface CViewController : UIViewController <UITableViewDataSource,UITableViewDelegate>
+@interface CViewController : UIViewController
 
 
 @property (strong, nonatomic) CChatBarEventHandler *chatBarEventHandler;
 @property (strong, nonatomic) CChatTableViewEventHandler *chatScrollViewEventHandler;
+@property (strong, nonatomic) CChatTableViewDelegate *chatTableViewDelegate;
 
 @property (weak, nonatomic) IBOutlet CUIChatBar *chatBar;
 @property (weak, nonatomic) IBOutlet UITableView *chatTableView;
 @property (weak, nonatomic) IBOutlet UITextField *chatTextField;
-@property (strong, nonatomic) CUIChatCellTableViewCell *customCell;
 
 @end
