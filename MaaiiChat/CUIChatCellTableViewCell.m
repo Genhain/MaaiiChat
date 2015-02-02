@@ -8,10 +8,20 @@
 
 #import "CUIChatCellTableViewCell.h"
 
+@interface CUIChatCellTableViewCell ()
+{
+    UILabel *_initialNameLabel;
+    UILabel *_initalMessageLabel;
+}
+
+@end
+
 @implementation CUIChatCellTableViewCell
 
-- (void)awakeFromNib {
-    // Initialization code
+- (void)awakeFromNib
+{
+    _initialNameLabel = [[UILabel alloc]initWithFrame:_nameLabel.frame];
+    _initalMessageLabel = [[UILabel alloc]initWithFrame:_messageLabel.frame];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
@@ -23,6 +33,10 @@
 
 - (void)setCell:(NSDictionary*)messageData
 {
+    //Reset the reused cell 
+    [_nameLabel setFrame:_initialNameLabel.frame];
+    [_messageLabel setFrame:_initalMessageLabel.frame];
+    
     [_nameLabel setText:messageData[@"name"]];
     [_messageLabel setText:messageData[@"message"]];
     

@@ -46,7 +46,42 @@
                    @"direction":@1,
                    @"name":@"me",
                    @"message":@"Nothing Much. Just Writing a really long winded sentence to test the functionality of the message height within the cell, so far it seems to be going okay. TDD helped quite a bit here"
-                   }].mutableCopy;
+                   },
+               @{
+                   @"direction":@0,
+                   @"name":@"them",
+                   @"message":@"...Nerd"
+                   },
+                       @{
+                           @"direction":@0,
+                           @"name":@"them",
+                           @"message":@"...Nerd"
+                           },
+                       @{
+                           @"direction":@0,
+                           @"name":@"them",
+                           @"message":@"...Nerd"
+                           },
+                       @{
+                           @"direction":@0,
+                           @"name":@"them",
+                           @"message":@"...Nerd"
+                           },
+                       @{
+                           @"direction":@0,
+                           @"name":@"them",
+                           @"message":@"...Nerd"
+                           },
+                       @{
+                           @"direction":@0,
+                           @"name":@"them",
+                           @"message":@"...Nerd"
+                           },
+                       @{
+                           @"direction":@0,
+                           @"name":@"them",
+                           @"message":@"...Nerd"
+                           }].mutableCopy;
 
 }
 
