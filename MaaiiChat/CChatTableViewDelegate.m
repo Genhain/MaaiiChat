@@ -101,10 +101,9 @@ NSString *const chatLogID = @"0_maaiiChat";
     [tableView reloadData];
     [tableView scrollToRowAtIndexPath:[tableView indexPathForLastRow] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
     
-    for(CMessageInfo *obj in _testDataArray)
-    {
-        obj.direction = arc4random() % 2;
-    }
+    //randomise last message direction
+    CMessageInfo* msg = [_testDataArray lastObject];
+    msg.direction = arc4random() % 2;
     
     [FileIOManager Save:_testDataArray fileName:chatLogID];
 }

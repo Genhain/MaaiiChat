@@ -41,9 +41,6 @@
     [_nameLabel setText:messageData.name];
     [_messageLabel setText:messageData.message];
     
-    [_nameLabel sizeToFit];
-    [_messageLabel sizeToFit];
-    
     UIImage *image;
     //because the message is saved at random the name label has also have to be set based on the direction.
     if(messageData.direction == Me)
@@ -57,13 +54,35 @@
         image= [[UIImage imageNamed:@"bubble_right"]resizableImageWithCapInsets:UIEdgeInsetsMake(18, 10, 6, 6) resizingMode:UIImageResizingModeStretch];
     }
     
+    [_nameLabel sizeToFit];
+    [_messageLabel sizeToFit];
+    
+    //make changes after size to fit, otherwise they will be negated
+    
+    //move the text labels to the right with
+    if(messageData.direction == Me)
+    {
+        CGFloat rightBuffer = 15;
+        
+        [_nameLabel setFrame:CGRectOffset([_nameLabel frame],
+                                          ([self frame].size.width - [_nameLabel frame].origin.x)-([_nameLabel frame].size.width +rightBuffer),
+                                          0)];
+        
+        [_messageLabel setFrame:CGRectOffset([_messageLabel frame],
+                                             ([self frame].size.width - [_messageLabel frame].origin.x)-([_messageLabel frame].size.width +rightBuffer),
+                                             0)];
+    }
+    
     [_bubbleImage setImage:image];
-
 }
 
 - (void)aboutToDisplay
 {
-    [_bubbleImage setFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
+    CGFloat height = [_nameLabel frame].size.height+[_messageLabel frame].size.height+15;
+    CGFloat width = MAX([_messageLabel frame].size.width + 20, [_nameLabel frame].size.width+20);
+    CGFloat posx = [_messageLabel frame].origin.x - 10;
+    
+    [_bubbleImage setFrame:CGRectMake(posx, 0, width,height)];
 }
 
 
