@@ -89,4 +89,9 @@
     return height;
 }
 
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [(CUIChatCellTableViewCell*)cell aboutToDisplay];
+}
+
 @end

@@ -40,8 +40,12 @@
     }
     
     [_bubbleImage setImage:image];
-    
-    [_bubbleImage setFrame:CGRectMake(_nameLabel.frame.origin.x, 0, _messageLabel.frame.size.width+15, _messageLabel.frame.size.height + _nameLabel.frame.size.height + 15)];
+
+}
+
+- (void)aboutToDisplay
+{
+    [_bubbleImage setFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
 }
 
 
