@@ -16,5 +16,6 @@
 +(instancetype)Create:(CUIChatTableView*)table;
 
 - (void)addMessage:(CMessageInfo*)messageInfo;
+- (void)clearChat;
 
 @end

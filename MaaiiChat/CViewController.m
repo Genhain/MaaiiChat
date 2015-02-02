@@ -17,6 +17,7 @@
 #import "CChatLog.h"
 #import "CUIChatBar.h"
 #import "UITableView+IndexPathFunctions.h"
+#import "CUIChatTableView.h"
 
 @interface CViewController ()
 {
@@ -46,6 +47,11 @@
 - (IBAction)sendMessage:(id)sender
 {
     [_chatBar sendMessage:_chatTableView];
+}
+- (IBAction)clearChat:(id)sender
+{
+    [_chatTableViewDelegate clearChat];
+    [_chatTableView reloadData];
 }
 
 @end

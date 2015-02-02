@@ -27,5 +27,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *chatTextField;
 
 - (IBAction)sendMessage:(id)sender;
+- (IBAction)clearChat:(id)sender;
 
 @end

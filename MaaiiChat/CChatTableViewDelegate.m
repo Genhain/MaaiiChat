@@ -40,6 +40,28 @@ NSString *const chatLogID = @"0_maaiiChat";
         table.dataSource = self;
         table.delegate = self;
         
+        //this is here just to setup a showcase
+//        CMessageInfo *one,*two,*three;
+//        
+//        one = [[CMessageInfo alloc]init];
+//        one.direction = Them;
+//        one.name = @"Them";
+//        one.message = @"Hey, What are you up to?";
+//        
+//        two = [[CMessageInfo alloc]init];
+//        two.direction = Me;
+//        two.name = @"Me";
+//        two.message = @"Nothing much, Just working on some code while attempting to adhere to the SOLID coding principles while also leveraging TDD.";
+//        
+//        three = [[CMessageInfo alloc]init];
+//        three.direction = Them;
+//        three.name = @"Them";
+//        three.message = @"...Nerd";
+//        
+//        _testDataArray = @[one,two,three].mutableCopy;
+//        
+//        [FileIOManager Save:_testDataArray fileName:chatLogID];
+        
         _testDataArray = [[[CChatLogParser alloc]init] logForFileName:chatLogID].log;
         
     }
@@ -111,6 +133,12 @@ NSString *const chatLogID = @"0_maaiiChat";
 - (void)addMessage:(CMessageInfo *)messageInfo
 {
     [_testDataArray addObject:messageInfo];
+}
+
+- (void)clearChat
+{
+    [_testDataArray removeAllObjects];
+    [FileIOManager Save:_testDataArray fileName:chatLogID];
 }
 
 @end

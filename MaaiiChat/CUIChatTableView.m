@@ -17,4 +17,6 @@
     [(id<UITableViewChatMessageDelegate>)self.delegate tableView:self parseChatMessage:messageInfo];
 }
 
+
+
 @end

@@ -73,8 +73,18 @@
                                             <action selector="sendMessage:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="jjz-qz-cuU"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="5KU-xt-enW">
+                                        <rect key="frame" x="8" y="15" width="46" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Clear">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="clearChat:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="uoD-dH-CWe"/>
+                                        </connections>
+                                    </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type here..." minimumFontSize="17" id="nyD-jc-9GV">
-                                        <rect key="frame" x="33" y="15" width="225" height="30"/>
+                                        <rect key="frame" x="62" y="15" width="196" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
