@@ -10,6 +10,7 @@
 #import "CUITableViewChatCell.h"
 #import "CChatLogParser.h"
 #import "CChatLog.h"
+#import "UITableView+IndexPathFunctions.h"
 
 @interface CChatTableViewDelegate ()
 {
@@ -85,6 +86,14 @@
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [(CUITableViewChatCell*)cell aboutToDisplay];
+}
+
+- (void)tableView:(UITableView *)tableView parseChatMessage:(NSMutableDictionary *)messageInfo
+{
+    [self addMessage:messageInfo];
+    //Reload table and then scroll to bottom.
+    [tableView reloadData];
+    [tableView scrollToRowAtIndexPath:[tableView indexPathForLastRow] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
 }
 
 - (void)addMessage:(NSMutableDictionary *)messageInfo

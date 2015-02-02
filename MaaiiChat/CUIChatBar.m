@@ -7,6 +7,7 @@
 //
 
 #import "CUIChatBar.h"
+#import "CUIChatTableView.h"
 
 @implementation CUIChatBar
 
@@ -18,6 +19,12 @@
         _message = [NSString string];
     }
     return self;
+}
+
+- (void)sendMessage:(UITableView*)tableView
+{
+    _message = _textField.text;
+    [(CUIChatTableView*)tableView addMessage:@{@"direction":@1,@"name":@"Me",@"message":_message}.mutableCopy];
 }
 
 @end

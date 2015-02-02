@@ -45,10 +45,7 @@
 
 - (IBAction)sendMessage:(id)sender
 {
-    _chatBar.message = _chatBar.textField.text;
-    [_chatTableViewDelegate addMessage:@{@"direction":@1,@"name":@"Me",@"message":_chatBar.message}.mutableCopy];
-    [_chatTableView reloadData];
-    [_chatTableView scrollToRowAtIndexPath:[_chatTableView indexPathForLastRow] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+    [_chatBar sendMessage:_chatTableView];
 }
 
 @end
