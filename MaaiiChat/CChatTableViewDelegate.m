@@ -41,34 +41,40 @@
         table.dataSource = self;
         table.delegate = self;
         
-//        // this is here just to setup a showcase
-//        CMessageInfo *one,*two,*three;
-//        
-//        one = [[CMessageInfo alloc]init];
-//        one.direction = Them;
-//        one.name = @"Them";
-//        one.message = @"Hey, What are you up to?";
-//        
-//        two = [[CMessageInfo alloc]init];
-//        two.direction = Me;
-//        two.name = @"Me";
-//        two.message = @"Nothing much, Just working on some code while attempting to adhere to the SOLID coding principles while also leveraging TDD.";
-//        
-//        three = [[CMessageInfo alloc]init];
-//        three.direction = Them;
-//        three.name = @"Them";
-//        three.message = @"...Nerd";
-//        
-//        _testDataArray = @[one,two,three].mutableCopy;
-//        
-//        [FileIOManager Save:_testDataArray fileName:fileName];
-        
         _testDataArray = [[[CChatLogParser alloc]init] logForFileName:fileName].log;
+        
         if(_testDataArray == nil)
-            _testDataArray = [NSMutableArray array];
+            _testDataArray = [self parsePlist];
         
     }
     return self;
+}
+
+- (NSMutableArray*)parsePlist
+{
+    NSBundle* bundle = [NSBundle mainBundle];
+    NSString* plistPath = [bundle pathForResource:@"StartChat" ofType:@"plist"];
+    
+    NSMutableArray *array;
+    
+    if (plistPath.length > 0)
+        array = [NSMutableArray arrayWithContentsOfFile:plistPath];
+    else
+        array = [NSMutableArray array];
+    
+    NSMutableArray *retValue = [NSMutableArray array];
+    
+    for (NSDictionary *dict in array)
+    {
+        CMessageInfo *msgInfo = [[CMessageInfo alloc]init];
+        msgInfo.direction = [dict[@"direction"] integerValue];
+        msgInfo.name = dict[@"name"];
+        msgInfo.message = dict[@"message"];
+        
+        [retValue addObject:msgInfo];
+    }
+    
+    return retValue;
 }
 
 - (void)awakeFromNib
