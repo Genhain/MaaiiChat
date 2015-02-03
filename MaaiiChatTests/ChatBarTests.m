@@ -10,6 +10,10 @@
 #import "CViewController.h"
 #import "CUIChatBar.h"
 #import "CUITableViewChatCell.h"
+#import "CUIChatTableView.h"
+#import "UITableView+IndexPathFunctions.h"
+#import "CChatTableViewDelegate.h"
+#import "FileIOManager.h"
 
 @interface ChatBarTests : XCTestCase
 {
@@ -137,10 +141,15 @@
     [CVC view];
     
     SUT = [[CVC chatBar] sendButton];
+    
+    CChatTableViewDelegate *mockChatTableViewDelegate = [CChatTableViewDelegate Create:[CVC chatTableView] chatLogID:@"testFile"];
+    [CVC setChatTableViewDelegate:mockChatTableViewDelegate];
 }
 
 - (void)tearDown
 {
+    NSError *error;
+    [FileIOManager DeleteFile:@"testFile" error:&error];
     // Put teardown code here. This method is called after the invocation of each test method in the class.
     [super tearDown];
 }
@@ -172,13 +181,11 @@
     
     //when
     [CVC sendMessage:nil];
-    NSIndexPath *path = [NSIndexPath indexPathForRow:[[CVC chatTableView] numberOfRowsInSection:[CVC chatTableView].numberOfSections - 1] - 1 inSection:[CVC chatTableView].numberOfSections - 1];
-    
+    NSIndexPath *path = [[CVC chatTableView] indexPathForLastRow];
     CUITableViewChatCell *cell = (CUITableViewChatCell*)[[CVC chatTableView] cellForRowAtIndexPath:path];
     
     //then
     XCTAssertEqualObjects([cell messageLabel].text, @"testing");
-    XCTAssertEqualObjects([cell nameLabel].text, @"Me");
 }
 
 - (void)testActionSetsCellMessageStringTestingTwo
@@ -189,13 +196,11 @@
     
     //when
     [CVC sendMessage:nil];
-    NSIndexPath *path = [NSIndexPath indexPathForRow:[[CVC chatTableView] numberOfRowsInSection:[CVC chatTableView].numberOfSections - 1] - 1 inSection:[CVC chatTableView].numberOfSections - 1];
-    
+    NSIndexPath *path = [[CVC chatTableView] indexPathForLastRow];
     CUITableViewChatCell *cell = (CUITableViewChatCell*)[[CVC chatTableView] cellForRowAtIndexPath:path];
     
     //then
     XCTAssertEqualObjects([cell messageLabel].text, @"testingTwo");
-    XCTAssertEqualObjects([cell nameLabel].text, @"Me");
 }
 
 

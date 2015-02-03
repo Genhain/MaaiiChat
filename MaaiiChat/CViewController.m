@@ -19,6 +19,8 @@
 #import "UITableView+IndexPathFunctions.h"
 #import "CUIChatTableView.h"
 
+NSString *const chatLogID = @"0_maaiiChat";
+
 @interface CViewController ()
 {
     NSMutableArray *_testDataArray;
@@ -35,7 +37,7 @@
     
     _chatBarEventHandler = [CChatBarEventHandler Create:_chatBar];
     _chatTableViewEventHandler = [CChatTableViewEventHandler Create:_chatTableView];
-    _chatTableViewDelegate = [CChatTableViewDelegate Create:_chatTableView];
+    _chatTableViewDelegate = [CChatTableViewDelegate Create:_chatTableView chatLogID:chatLogID];
 }
 
 - (void)didReceiveMemoryWarning

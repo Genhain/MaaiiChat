@@ -12,7 +12,15 @@
 
 - (NSIndexPath*)indexPathForLastRow
 {
-    return[NSIndexPath indexPathForRow:[self numberOfRowsInSection:self.numberOfSections - 1] - 1 inSection:self.numberOfSections - 1];
+    NSInteger row = [self numberOfRowsInSection:self.numberOfSections - 1] - 1;
+    NSInteger section =self.numberOfSections - 1;
+    
+    return [NSIndexPath indexPathForRow:row inSection:section];
+}
+
+- (CGRect)rectForBottomRow
+{
+    return CGRectMake(0, self.contentSize.height - self.bounds.size.height, self.bounds.size.width, self.bounds.size.height);
 }
 
 @end

@@ -12,6 +12,10 @@
 #import "CUITableViewChatCell.h"
 #import "UIView+NibLoading.h"
 #import "CChatTableViewDelegate.h"
+#import "CUIChatTableView.h"
+#import "CMessageInfo.h"
+#import "UITableView+IndexPathFunctions.h"
+#import "FileIOManager.h"
 
 @interface ChatTableViewTests : XCTestCase
 {
@@ -77,8 +81,8 @@
                                                         object:nil
                                                       userInfo:@{ UIKeyboardFrameBeginUserInfoKey : [NSValue valueWithCGRect:keyboardFrame] }];
     
-    XCTAssertEqual([[SUT scrollView]frame].size.height, scrollViewIntial.size.height-30);
-    XCTAssertEqual([[SUT scrollView]frame].origin.y, 0);
+    XCTAssertEqual([[SUT tableView]frame].size.height, scrollViewIntial.size.height-30);
+    XCTAssertEqual([[SUT tableView]frame].origin.y, 0);
 }
 
 - (void)testScrollViewShouldScrollContentToBottomOnKeyboardWillAppear
@@ -89,7 +93,7 @@
                                                         object:nil
                                                       userInfo:@{ UIKeyboardFrameBeginUserInfoKey : [NSValue valueWithCGRect:keyboardFrame] }];
     
-    XCTAssertEqual([[SUT scrollView]contentOffset].y,[[SUT scrollView] contentSize].height-[[SUT scrollView]bounds].size.height);
+    XCTAssertEqual([[SUT tableView]contentOffset].y,[[SUT tableView] contentSize].height-[[SUT tableView]bounds].size.height);
 }
 
 
@@ -154,10 +158,14 @@
     
      SUT = [CVC chatTableViewDelegate];
     
+    CChatTableViewDelegate *mockChatTableViewDelegate = [CChatTableViewDelegate Create:[CVC chatTableView] chatLogID:@"testFile"];
+    [CVC setChatTableViewDelegate:mockChatTableViewDelegate];
 }
 
 - (void)tearDown
 {
+    NSError *error;
+    [FileIOManager DeleteFile:@"testfile" error:&error];
     // Put teardown code here. This method is called after the invocation of each test method in the class.
     [super tearDown];
 }
@@ -170,14 +178,18 @@
 
 - (void)testAddChatToTableView
 {
-    [SUT addMessage:@{@"direction":@1,@"name":@"Them",@"message":@"testing"}.mutableCopy];
+    CMessageInfo *msg = [[CMessageInfo alloc] init];
+    msg.direction = Me;
+    msg.name = @"Me";
+    msg.message = @"testing";
     
-    NSIndexPath *path = [NSIndexPath indexPathForRow:[[CVC chatTableView] numberOfRowsInSection:[CVC chatTableView].numberOfSections - 1] - 1 inSection:[CVC chatTableView].numberOfSections - 1];
+    [[CVC chatTableView] addMessage:msg];
+    
+    NSIndexPath *path = [[CVC chatTableView] indexPathForLastRow];
     
     CUITableViewChatCell *cell = (CUITableViewChatCell*)[[CVC chatTableView] cellForRowAtIndexPath:path];
     
     XCTAssertNotNil(cell);
-    XCTAssertEqualObjects(cell.nameLabel.text,@"Them");
     XCTAssertEqualObjects(cell.messageLabel.text,@"testing");
 }
 

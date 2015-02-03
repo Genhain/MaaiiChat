@@ -13,7 +13,7 @@
 
 @interface CChatTableViewDelegate : UITableViewCell <UITableViewDataSource,UITableViewDelegate,UITableViewChatMessageDelegate>
 
-+(instancetype)Create:(CUIChatTableView*)table;
++(instancetype)Create:(CUIChatTableView*)table chatLogID:(NSString*)fileName;
 
 - (void)addMessage:(CMessageInfo*)messageInfo;
 - (void)clearChat;

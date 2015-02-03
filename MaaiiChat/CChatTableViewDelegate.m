@@ -15,28 +15,29 @@
 #import "FileIOManager.h"
 #import "CMessageInfo.h"
 
-NSString *const chatLogID = @"0_maaiiChat";
-
 @interface CChatTableViewDelegate ()
 {
     NSMutableArray *_testDataArray;
     CUITableViewChatCell *_customCell;
+    NSString *_currentChatLogID;
 }
 
 @end
 
 @implementation CChatTableViewDelegate
 
-+(instancetype)Create:(CUIChatTableView*)table
++(instancetype)Create:(CUIChatTableView*)table chatLogID:(NSString*)fileName
 {
-    return [[self alloc]initWithSource:table];
+    return [[self alloc]initWithSource:table chatLogID:fileName];
 }
 
-- (instancetype)initWithSource:(CUIChatTableView*)table
+- (instancetype)initWithSource:(CUIChatTableView*)table chatLogID:(NSString*)fileName
 {
     self = [super init];
     if (self)
     {
+        _currentChatLogID = fileName;
+        
         table.dataSource = self;
         table.delegate = self;
         
@@ -62,7 +63,9 @@ NSString *const chatLogID = @"0_maaiiChat";
 //        
 //        [FileIOManager Save:_testDataArray fileName:chatLogID];
         
-        _testDataArray = [[[CChatLogParser alloc]init] logForFileName:chatLogID].log;
+        _testDataArray = [[[CChatLogParser alloc]init] logForFileName:fileName].log;
+        if(_testDataArray == nil)
+            _testDataArray = [NSMutableArray array];
         
     }
     return self;
@@ -121,13 +124,13 @@ NSString *const chatLogID = @"0_maaiiChat";
     [self addMessage:messageInfo];
     //Reload table and then scroll to bottom.
     [tableView reloadData];
-    [tableView scrollToRowAtIndexPath:[tableView indexPathForLastRow] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+    [tableView scrollRectToVisible:[tableView rectForBottomRow] animated:YES];
     
     //randomise last message direction
     CMessageInfo* msg = [_testDataArray lastObject];
     msg.direction = arc4random() % 2;
     
-    [FileIOManager Save:_testDataArray fileName:chatLogID];
+    [FileIOManager Save:_testDataArray fileName:_currentChatLogID];
 }
 
 - (void)addMessage:(CMessageInfo *)messageInfo
@@ -138,7 +141,7 @@ NSString *const chatLogID = @"0_maaiiChat";
 - (void)clearChat
 {
     [_testDataArray removeAllObjects];
-    [FileIOManager Save:_testDataArray fileName:chatLogID];
+    [FileIOManager Save:_testDataArray fileName:_currentChatLogID];
 }
 
 @end
