@@ -16,6 +16,7 @@
 		B54F5C7E1A7DDB7300101010 /* CUIBubbleMessage.xib in Resources */ = {isa = PBXBuildFile; fileRef = B54F5C7D1A7DDB7300101010 /* CUIBubbleMessage.xib */; };
 		B54F5C801A7DE53200101010 /* BubbleMessageTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B54F5C7F1A7DE53200101010 /* BubbleMessageTests.m */; };
 		B54F5C831A7E29CE00101010 /* UIView+NibLoading.m in Sources */ = {isa = PBXBuildFile; fileRef = B54F5C821A7E29CE00101010 /* UIView+NibLoading.m */; };
+		B57DA1ED1A809C4C00678E92 /* StartChat.plist in Resources */ = {isa = PBXBuildFile; fileRef = B57DA1EC1A809C4C00678E92 /* StartChat.plist */; };
 		B587ADE41A7E76DE0074CB14 /* CUITableViewChatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B587ADE31A7E76DE0074CB14 /* CUITableViewChatCell.m */; };
 		B5A21F6F1A7B45EF0036AD35 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5A21F6E1A7B45EF0036AD35 /* Foundation.framework */; };
 		B5A21F711A7B45EF0036AD35 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5A21F701A7B45EF0036AD35 /* CoreGraphics.framework */; };
@@ -68,6 +69,7 @@
 		B54F5C7F1A7DE53200101010 /* BubbleMessageTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BubbleMessageTests.m; sourceTree = "<group>"; };
 		B54F5C811A7E29CE00101010 /* UIView+NibLoading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+NibLoading.h"; sourceTree = "<group>"; };
 		B54F5C821A7E29CE00101010 /* UIView+NibLoading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+NibLoading.m"; sourceTree = "<group>"; };
+		B57DA1EC1A809C4C00678E92 /* StartChat.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = StartChat.plist; sourceTree = "<group>"; };
 		B587ADE21A7E76DE0074CB14 /* CUITableViewChatCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUITableViewChatCell.h; sourceTree = "<group>"; };
 		B587ADE31A7E76DE0074CB14 /* CUITableViewChatCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CUITableViewChatCell.m; sourceTree = "<group>"; };
 		B5A21F6B1A7B45EF0036AD35 /* MaaiiChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MaaiiChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -230,6 +232,7 @@
 				B5A21F771A7B45EF0036AD35 /* InfoPlist.strings */,
 				B5A21F7A1A7B45EF0036AD35 /* main.m */,
 				B5A21F7C1A7B45EF0036AD35 /* MaaiiChat-Prefix.pch */,
+				B57DA1EC1A809C4C00678E92 /* StartChat.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -402,6 +405,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5A21F851A7B45EF0036AD35 /* Main_iPad.storyboard in Resources */,
+				B57DA1ED1A809C4C00678E92 /* StartChat.plist in Resources */,
 				B5A21F8A1A7B45EF0036AD35 /* Images.xcassets in Resources */,
 				B5A21F821A7B45EF0036AD35 /* Main_iPhone.storyboard in Resources */,
 				B5A21F791A7B45EF0036AD35 /* InfoPlist.strings in Resources */,
