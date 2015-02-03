@@ -55,5 +55,15 @@ NSString *const chatLogID = @"0_maaiiChat";
     [_chatTableViewDelegate clearChat];
     [_chatTableView reloadData];
 }
+- (IBAction)onTextChanged:(id)sender
+{
+    [_chatBar.sendButton setEnabled:YES];
+    
+    if(_chatBar.textField.text.length <= 0)
+    {
+        //disable send button;
+        [_chatBar.sendButton setEnabled:NO];
+    }
+}
 
 @end

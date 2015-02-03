@@ -41,7 +41,7 @@
         table.dataSource = self;
         table.delegate = self;
         
-        //this is here just to setup a showcase
+//        // this is here just to setup a showcase
 //        CMessageInfo *one,*two,*three;
 //        
 //        one = [[CMessageInfo alloc]init];
@@ -61,7 +61,7 @@
 //        
 //        _testDataArray = @[one,two,three].mutableCopy;
 //        
-//        [FileIOManager Save:_testDataArray fileName:chatLogID];
+//        [FileIOManager Save:_testDataArray fileName:fileName];
         
         _testDataArray = [[[CChatLogParser alloc]init] logForFileName:fileName].log;
         if(_testDataArray == nil)
