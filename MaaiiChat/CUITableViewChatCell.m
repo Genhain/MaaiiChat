@@ -79,8 +79,16 @@
 - (void)aboutToDisplay
 {
     CGFloat height = [_nameLabel frame].size.height+[_messageLabel frame].size.height+15;
-    CGFloat width = MAX([_messageLabel frame].size.width + 20, [_nameLabel frame].size.width+20);
-    CGFloat posx = [_messageLabel frame].origin.x - 10;
+    
+    CGRect rectToUse;
+    
+    if ([_messageLabel frame].size.width > [_nameLabel frame].size.width)
+        rectToUse = [_messageLabel frame];
+    else
+        rectToUse = [_nameLabel frame];
+    
+    CGFloat width = rectToUse.size.width + 20;
+    CGFloat posx = rectToUse.origin.x - 10;
     
     [_bubbleImage setFrame:CGRectMake(posx, 0, width,height)];
 }
