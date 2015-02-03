@@ -11,5 +11,6 @@
 @interface UITableView (IndexPathFunctions)
 
 - (NSIndexPath*)indexPathForLastRow;
+- (CGRect)rectForBottomRow;
 
 @end
