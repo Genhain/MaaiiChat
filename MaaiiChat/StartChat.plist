@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>direction</key>
+		<integer>1</integer>
+		<key>name</key>
+		<string>Them</string>
+		<key>message</key>
+		<string>Hey, What are you up to?</string>
+	</dict>
+	<dict>
+		<key>direction</key>
+		<integer>0</integer>
+		<key>name</key>
+		<string>Me</string>
+		<key>message</key>
+		<string>Nothing much, Just working on some code while attempting to adhere to the SOLID coding principles while also leveraging TDD.</string>
+	</dict>
+	<dict>
+		<key>direction</key>
+		<integer>1</integer>
+		<key>name</key>
+		<string>Them</string>
+		<key>message</key>
+		<string>...nerd.</string>
+	</dict>
+</array>
+</plist>
